@@ -1,7 +1,41 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Daftarak" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
+    <!-- Dark theme -->
+    <style name="Base.Theme.Daftarak" parent="Theme.Material3.DayNight">
+
+        <!-- Brand colors -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/primary_light</item>
+
+        <!-- Secondary/accent colors -->
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/secondary_light</item>
+
+        <!-- Background / surface -->
+        <item name="colorSurface">@color/secondary</item>
+        <item name="colorOnSurface">@color/text_light</item>
+        <item name="android:windowBackground">@color/secondary</item>
+
+        <!-- System bars -->
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:navigationBarColor">@color/primary_light</item>
+
+        <!-- Toolbar -->
+        <item name="toolbarStyle">@style/CustomToolbar</item>
     </style>
+
+    <!-- Toolbar customization for dark theme -->
+    <style name="CustomToolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextColor">@color/white</item>
+        <item name="android:background">@color/primary</item>
+    </style>
+
+    <style name="BottomNavigationStyle" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/secondary</item>
+        <item name="itemIconTint">@color/white</item>
+        <item name="itemTextColor">@color/white</item>
+    </style>
+
 </resources>

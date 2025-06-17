@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primary">#112D4E</color>
+    <color name="primary_light">#3F72AF</color>
+    <color name="secondary">#DBE2EF</color>
+    <color name="secondary_light">#F9F7F7</color>
+
+    <color name="text_light">#F5F5F5</color>          <!-- Light text on dark bg -->
+    <color name="text_dark">#121212</color>           <!-- Optional -->
 </resources>
