@@ -26,4 +26,6 @@
     <string name="sort_type">نوع مرتب سازی</string>
     <string name="search_options">گزینه‌های جستجو</string>
     <string name="search">جستجو…</string>
+    <string name="hello_blank_fragment">سلام از یک فرگمت خالی</string>
+    <string name="finish">تمام</string>
 </resources>
