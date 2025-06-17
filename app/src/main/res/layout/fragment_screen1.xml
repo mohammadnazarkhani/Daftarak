@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/screen1_bg"
-    tools:context=".ui.fragment.onboarding.Screen1Fragment">
+    tools:context=".ui.fragment.onboarding.screens.Screen1Fragment">
 
     <ImageView
         android:id="@+id/ivScreen1"

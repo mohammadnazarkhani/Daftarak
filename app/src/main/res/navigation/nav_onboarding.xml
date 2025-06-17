@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_onboarding">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_onboarding"
+    app:startDestination="@id/splashFragment">
 
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.daftarak.ui.fragment.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_screen1Fragment"
+            app:destination="@id/screen1Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/screen1Fragment"
+        android:name="com.example.daftarak.ui.fragment.onboarding.screens.Screen1Fragment"
+        android:label="fragment_screen1"
+        tools:layout="@layout/fragment_screen1" >
+        <action
+            android:id="@+id/action_screen1Fragment_to_screen2Fragment"
+            app:destination="@id/screen2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/screen2Fragment"
+        android:name="com.example.daftarak.ui.fragment.onboarding.screens.Screen2Fragment"
+        android:label="fragment_screen2"
+        tools:layout="@layout/fragment_screen2" >
+        <action
+            android:id="@+id/action_screen2Fragment_to_screen3Fragment"
+            app:destination="@id/screen3Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/screen3Fragment"
+        android:name="com.example.daftarak.ui.fragment.onboarding.screens.Screen3Fragment"
+        android:label="fragment_screen3"
+        tools:layout="@layout/fragment_screen3" >
+        <action
+            android:id="@+id/action_screen3Fragment_to_screen4Fragment"
+            app:destination="@id/screen4Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/screen4Fragment"
+        android:name="com.example.daftarak.ui.fragment.onboarding.screens.Screen4Fragment"
+        android:label="fragment_screen4"
+        tools:layout="@layout/fragment_screen4" />
 </navigation>
