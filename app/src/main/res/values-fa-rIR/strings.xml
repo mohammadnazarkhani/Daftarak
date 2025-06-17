@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">دفترک</string>
+    <string name="splash_screen_image">تصویر صفحه پیش نمایش</string>
+    <string name="students">دانشجویان:</string>
+    <string name="student1">محمد نظرخانی</string>
+    <string name="student2">مهیار گلدیانی</string>
+    <string name="next">بعدی</string>
+    <string name="welcome_to">خوش آمدید به</string>
+    <string name="screen1_desc">افکارت را ثبت کن، ایده‌هایت را سامان بده و با آسودگی بهره‌وری‌ات را حفظ کن.</string>
+    <string name="scrren2_title_line1">با دفترک‌ها</string>
+    <string name="scrren2_title_line2">سازمان‌دهی کنید</string>
+    <string name="screen2_description">یادداشت‌های خود را در دفترک‌ها گروه‌بندی کنید تا همه چیز مرتب و ساختارمند باقی بماند.</string>
+    <string name="screen_img_description">عکسی برای صفحه کنونی.</string>
+    <string name="scrren3_title">نوشتن، ویرایش، حذف</string>
+    <string name="screen3_description">یادداشت‌های جدید اضافه کنید، موارد موجود را به‌روزرسانی کنید، یا پس از اتمام حذفشان کنید — ساده است.</string>
+    <string name="scrren4_title">جستجو و مرتب‌سازی یادداشت‌ها</string>
+    <string name="screen4_description">یادداشت‌های خود را به‌سرعت جستجو و مرتب کنید تا دقیقاً آنچه را می‌خواهید پیدا کنید.</string>
+    <string name="notes">یادداشت‌ها</string>
+    <string name="settings">تنظیمات</string>
+    <string name="about_us">درباره ما</string>
+    <string name="add_new_notebook_or_note">یک دفترچه یا یادداشت جدید اضافه کنید</string>
+    <string name="notebook_created_at">ایجاد شده در</string>
+    <string name="notebook_title">عنوان دفترک</string>
+    <string name="sort_order">مرتب سازی</string>
+    <string name="sort_type">نوع مرتب سازی</string>
+    <string name="search_options">گزینه‌های جستجو</string>
+    <string name="search">جستجو…</string>
+</resources>
