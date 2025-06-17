@@ -2,11 +2,12 @@ package com.example.daftarak.data.repository;
 
 import android.content.Context;
 
+import androidx.lifecycle.LiveData;
+
 import com.example.daftarak.data.dao.NoteDao;
 import com.example.daftarak.data.database.AppDatabase;
 import com.example.daftarak.data.model.Note;
 
-import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -33,37 +34,37 @@ public class NoteRepository {
         executorService.execute(() -> noteDao.deleteNote(note));
     }
 
-    // Fetching sorted notes (sync — call in background thread)
-    public List<Note> getNotesSortedByDateAsc() {
+    // Return LiveData for all query methods
+
+    public LiveData<java.util.List<Note>> getNotesSortedByDateAsc() {
         return noteDao.getAllNotesSortedByDateAsc();
     }
 
-    public List<Note> getNotesSortedByDateDesc() {
+    public LiveData<java.util.List<Note>> getNotesSortedByDateDesc() {
         return noteDao.getAllNotesSortedByDateDesc();
     }
 
-    public List<Note> getNotesSortedByTitleAsc() {
+    public LiveData<java.util.List<Note>> getNotesSortedByTitleAsc() {
         return noteDao.getAllNotesSortedByTitleAsc();
     }
 
-    public List<Note> getNotesSortedByTitleDesc() {
+    public LiveData<java.util.List<Note>> getNotesSortedByTitleDesc() {
         return noteDao.getAllNotesSortedByTitleDesc();
     }
 
-    // Search
-    public List<Note> searchNotesByTitle(String query) {
+    public LiveData<java.util.List<Note>> searchNotesByTitle(String query) {
         return noteDao.searchNotesByTitle(query);
     }
 
-    public List<Note> searchNotesByBody(String query) {
+    public LiveData<java.util.List<Note>> searchNotesByBody(String query) {
         return noteDao.searchNotesByBody(query);
     }
 
-    public List<Note> searchNotesByTitleOrBody(String query) {
+    public LiveData<java.util.List<Note>> searchNotesByTitleOrBody(String query) {
         return noteDao.searchNotesByTitleOrBody(query);
     }
 
-    public List<Note> getNotesByNotebookId(int notebookId) {
+    public LiveData<java.util.List<Note>> getNotesByNotebookId(int notebookId) {
         return noteDao.getNotesByNotebookId(notebookId);
     }
 }

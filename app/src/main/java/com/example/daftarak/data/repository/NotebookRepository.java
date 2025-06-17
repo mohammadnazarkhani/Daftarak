@@ -2,6 +2,8 @@ package com.example.daftarak.data.repository;
 
 import android.content.Context;
 
+import androidx.lifecycle.LiveData;
+
 import com.example.daftarak.data.dao.NotebookDao;
 import com.example.daftarak.data.database.AppDatabase;
 import com.example.daftarak.data.model.Notebook;
@@ -33,12 +35,13 @@ public class NotebookRepository {
         executorService.execute(() -> notebookDao.deleteNotebook(notebook));
     }
 
-    public List<Notebook> getAllNotebooks() {
-        // ⚠️ Blocking call, use on a background thread or LiveData in production
+    // Now returns LiveData<List<Notebook>> for reactive updates
+    public LiveData<List<Notebook>> getAllNotebooks() {
         return notebookDao.getAllNotebooks();
     }
 
-    public Notebook getNotebookById(int id) {
+    // Returns LiveData<Notebook> for reactive updates on a single notebook
+    public LiveData<Notebook> getNotebookById(int id) {
         return notebookDao.getNotebookById(id);
     }
 }

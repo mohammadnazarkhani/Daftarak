@@ -1,5 +1,6 @@
 package com.example.daftarak.data.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Update;
@@ -23,8 +24,8 @@ public interface NotebookDao {
     void deleteNotebook(Notebook notebook);
 
     @Query("SELECT * FROM notebooks ORDER BY created_at DESC")
-    List<Notebook> getAllNotebooks();
+    LiveData<List<Notebook>> getAllNotebooks(); // changed return type to LiveData
 
     @Query("SELECT * FROM notebooks WHERE id = :id LIMIT 1")
-    Notebook getNotebookById(int id);
+    LiveData<Notebook> getNotebookById(int id); // changed return type to LiveData
 }
