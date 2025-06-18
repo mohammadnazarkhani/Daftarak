@@ -1,66 +1,84 @@
 package com.example.daftarak.ui.fragment;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.daftarak.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link NotesFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.daftarak.R;
+import com.example.daftarak.ui.adapter.NoteAdapter;
+import com.example.daftarak.ui.viewmodel.NoteViewModel;
+
+import java.util.ArrayList;
+
 public class NotesFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_NOTEBOOK_ID = "notebook_id";
+    // Use Integer object to allow null (no argument case)
+    private Integer notebookId = null;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private RecyclerView notesRecyclerView;
+    private NoteAdapter noteAdapter;
+    private NoteViewModel noteViewModel;
 
     public NotesFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment NotesFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static NotesFragment newInstance(String param1, String param2) {
+    // Factory method to create fragment with notebookId argument
+    public static NotesFragment newInstance(Integer notebookId) {
         NotesFragment fragment = new NotesFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+        if (notebookId != null) {
+            Bundle args = new Bundle();
+            args.putInt(ARG_NOTEBOOK_ID, notebookId);
+            fragment.setArguments(args);
+        }
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+        if (getArguments() != null && getArguments().containsKey(ARG_NOTEBOOK_ID)) {
+            notebookId = getArguments().getInt(ARG_NOTEBOOK_ID);
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_notes, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        notesRecyclerView = view.findViewById(R.id.notesRecyclerView);
+        notesRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+
+        noteAdapter = new NoteAdapter(new ArrayList<>());
+        notesRecyclerView.setAdapter(noteAdapter);
+
+        noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
+
+        if (notebookId != null) {
+            // Show notes for specific notebook
+            noteViewModel.getNotesByNotebookId(notebookId).observe(getViewLifecycleOwner(), notes -> {
+                noteAdapter.setNotes(notes);
+            });
+        } else {
+            // Show all notes if no notebookId provided (e.g., direct tab click)
+            noteViewModel.getAllNotes().observe(getViewLifecycleOwner(), notes -> {
+                noteAdapter.setNotes(notes);
+            });
+        }
     }
 }

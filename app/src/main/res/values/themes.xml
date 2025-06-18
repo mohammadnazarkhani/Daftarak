@@ -33,7 +33,7 @@
     <!-- Toolbar customization -->
     <style name="CustomToolbar" parent="Widget.Material3.Toolbar">
         <item name="titleTextColor">@color/white</item>
-        <item name="android:background">@color/primary</item>
+        <item name="android:background">@color/primary_light</item>
     </style>
 
     <!-- Bottom navigation customization -->

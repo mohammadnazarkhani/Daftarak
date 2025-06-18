@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,12 +33,14 @@ public class NotebooksFragment extends Fragment {
         // Step 1: Init RecyclerView
         rvNotebooks = view.findViewById(R.id.rvNotebooks);
         rvNotebooks.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new NotebookAdapter(notebook -> {
-            // Handle notebook click here (e.g., navigate to details or edit)
-            // Example:
-            // Toast.makeText(getContext(), "Clicked: " + notebook.getTitle(), Toast.LENGTH_SHORT).show();
-        });
-        rvNotebooks.setAdapter(adapter);
+            adapter = new NotebookAdapter(notebook -> {
+                Bundle bundle = new Bundle();
+                bundle.putInt("notebookId", notebook.getId());
+
+                NavHostFragment.findNavController(this).navigate(R.id.notesFragment, bundle);
+            });
+
+            rvNotebooks.setAdapter(adapter);
 
         // Step 2: Setup ViewModel
         viewModel = new ViewModelProvider(this).get(NotebookViewModel.class);

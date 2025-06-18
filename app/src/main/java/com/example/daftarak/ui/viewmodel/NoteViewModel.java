@@ -52,6 +52,11 @@ public class NoteViewModel extends AndroidViewModel {
         return repository.getNotesByNotebookId(notebookId);
     }
 
+    // New method to get all notes
+    public LiveData<List<Note>> getAllNotes() {
+        return repository.getAllNotes();
+    }
+
     public void insert(Note note) {
         repository.insertNote(note);
     }

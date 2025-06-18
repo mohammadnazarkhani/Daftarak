@@ -14,6 +14,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.daftarak.utility.UiExtensions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -28,17 +29,16 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        Window window = getWindow();
-        window.setStatusBarColor(getColor(R.color.primary));
+        UiExtensions.setTopToolBarColor(getWindow(), this, getColor(R.color.primary_light));
+
+        bottomNavigationView = findViewById(R.id.bottomNavigation);
+        fab = findViewById(R.id.fab);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        bottomNavigationView = findViewById(R.id.bottomNavigation);
-        fab = findViewById(R.id.fab);
 
         NavHostFragment navHostFragment =
                 (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
@@ -66,6 +66,26 @@ public class MainActivity extends AppCompatActivity {
                     showUI();
             });
         }
+
+        if (navController != null) {
+            navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+                int id = destination.getId();
+                String label = destination.getLabel() != null ? destination.getLabel().toString() : "unknown";
+                Log.d("MainActivity", "Navigated to destination: id=" + id + ", label=" + label);
+
+                if (getSupportActionBar() != null) {
+                    getSupportActionBar().setTitle(label);  // <-- Set the ActionBar title here
+                    getSupportActionBar().show();            // Show the ActionBar
+                }
+
+                // Show UI on main nav fragments
+                if (id != R.id.splashFragment && id != R.id.viewPagerFragment)
+                    showUI();
+                else
+                    hideUI();
+            });
+        }
+
     }
 
     public void hideUI() {
@@ -78,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
         if (bottomNavigationView != null) bottomNavigationView.setVisibility(View.VISIBLE);
         if (fab != null) fab.setVisibility(View.VISIBLE);
         if (getSupportActionBar() != null) getSupportActionBar().show();
+        Window window = getWindow();
+        UiExtensions.setNavigationBarColor(window, getColor(R.color.secondary));
     }
 
 }

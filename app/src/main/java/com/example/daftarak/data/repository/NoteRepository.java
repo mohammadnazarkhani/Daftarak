@@ -8,6 +8,7 @@ import com.example.daftarak.data.dao.NoteDao;
 import com.example.daftarak.data.database.AppDatabase;
 import com.example.daftarak.data.model.Note;
 
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -67,4 +68,9 @@ public class NoteRepository {
     public LiveData<java.util.List<Note>> getNotesByNotebookId(int notebookId) {
         return noteDao.getNotesByNotebookId(notebookId);
     }
+
+    public LiveData<List<Note>> getAllNotes() {
+        return noteDao.getAllNotes();
+    }
+
 }

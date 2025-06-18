@@ -54,4 +54,8 @@ public interface NoteDao {
     // Get notes by notebook id
     @Query("SELECT * FROM notes WHERE notebook_id = :notebookId ORDER BY created_at DESC")
     LiveData<List<Note>> getNotesByNotebookId(int notebookId);
+
+    @Query("SELECT * FROM notes ORDER BY created_at DESC")
+    LiveData<List<Note>> getAllNotes();
+
 }
