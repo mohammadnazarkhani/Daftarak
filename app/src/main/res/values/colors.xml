@@ -18,4 +18,6 @@
     <color name="screen4_bg">#FBF7F3</color>
 
     <color name="next_btn">#1B94E0</color>
+
+    <color name="md_theme_outline">#79747E</color>
 </resources>

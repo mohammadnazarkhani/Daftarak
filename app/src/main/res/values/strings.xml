@@ -29,4 +29,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="finish">Finish</string>
     <string name="notebooks">Notebooks</string>
+    <string name="sample_time">Jun 18, 2025</string>
+    <string name="sample_note_body">This is the body of the note. It can be long, very long, or incredibly long — but only the first few lines will show.</string>
+    <string name="sample_note_title">Note Title Example That Might Be Too Long</string>
+    <string name="enable_dark_mode">Enable Dark Mode</string>
+    <string name="enable_notifications">Enable Notifications</string>
 </resources>

@@ -28,4 +28,10 @@
     <string name="search">جستجو…</string>
     <string name="hello_blank_fragment">سلام از یک فرگمت خالی</string>
     <string name="finish">تمام</string>
+    <string name="notebooks">دفترچه‌ها</string>
+    <string name="sample_time">۱۸ ژوئن ۲۰۲۵</string>
+    <string name="sample_note_body">این متن بدنه یادداشت است. ممکن است کوتاه، خیلی بلند یا فوق‌العاده بلند باشد — اما فقط چند خط اول نمایش داده می‌شود.</string>
+    <string name="sample_note_title">نمونه عنوان یادداشت که ممکن است خیلی طولانی باشد</string>
+    <string name="enable_dark_mode">فعال‌سازی حالت تاریک</string>
+    <string name="enable_notifications">فعال‌سازی اعلان‌ها</string>
 </resources>
