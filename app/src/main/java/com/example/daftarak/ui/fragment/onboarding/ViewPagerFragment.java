@@ -1,20 +1,20 @@
 package com.example.daftarak.ui.fragment.onboarding;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import com.example.daftarak.R;
-import com.example.daftarak.ui.fragment.onboarding.screens.Screen1Fragment;
-import com.example.daftarak.ui.fragment.onboarding.screens.Screen2Fragment;
-import com.example.daftarak.ui.fragment.onboarding.screens.Screen3Fragment;
-import com.example.daftarak.ui.fragment.onboarding.screens.Screen4Fragment;
+import com.example.daftarak.ui.fragment.onboarding.screens.*;
 
 import java.util.ArrayList;
 
@@ -34,18 +34,28 @@ public class ViewPagerFragment extends Fragment {
 
         viewPager = view.findViewById(R.id.viewPager);
 
-        ArrayList<Fragment> fragmentList = new ArrayList<>();
-        fragmentList.add(new Screen1Fragment());
-        fragmentList.add(new Screen2Fragment());
-        fragmentList.add(new Screen3Fragment());
-        fragmentList.add(new Screen4Fragment());
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(new Screen1Fragment());
+        fragments.add(new Screen2Fragment());
+        fragments.add(new Screen3Fragment());
+        fragments.add(new Screen4Fragment());
 
-        ViewPagerAdapter adapter = new ViewPagerAdapter(
-                fragmentList,
-                getChildFragmentManager(),
-                getLifecycle()
-        );
-
+        ViewPagerAdapter adapter = new ViewPagerAdapter(fragments, getChildFragmentManager(), getLifecycle());
         viewPager.setAdapter(adapter);
     }
+
+    public void nextPage() {
+        if (viewPager.getCurrentItem() < 3) {
+            viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+        }
+    }
+
+    public void finishOnboarding() {
+        SharedPreferences prefs = requireContext().getSharedPreferences("onboarding", 0);
+        prefs.edit().putBoolean("firstTime", false).apply();
+
+        NavHostFragment.findNavController(this)
+                .navigate(R.id.action_viewPagerFragment_to_notebooksFragment);
+    }
+
 }

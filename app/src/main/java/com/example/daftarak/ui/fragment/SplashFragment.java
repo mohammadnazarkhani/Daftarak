@@ -29,8 +29,20 @@ public class SplashFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            NavHostFragment.findNavController(SplashFragment.this)
-                    .navigate(R.id.action_splashFragment_to_viewPagerFragment);
+            boolean isFirstTime = requireContext()
+                    .getSharedPreferences("onboarding", 0)
+                    .getBoolean("firstTime", true);
+
+            if (isFirstTime) {
+                NavHostFragment.findNavController(SplashFragment.this)
+                        .navigate(R.id.action_splashFragment_to_viewPagerFragment);
+            } else {
+                NavHostFragment.findNavController(SplashFragment.this)
+                        .navigate(R.id.action_splashFragment_to_notebooksFragment);
+            }
+
+
         }, 2000);
     }
+
 }
