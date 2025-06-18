@@ -34,4 +34,7 @@
     <string name="sample_note_title">نمونه عنوان یادداشت که ممکن است خیلی طولانی باشد</string>
     <string name="enable_dark_mode">فعال‌سازی حالت تاریک</string>
     <string name="enable_notifications">فعال‌سازی اعلان‌ها</string>
+    <string name="about_us_description">
+    ما محمد نظرخانی و مهیار گلدیانی هستیم. استاد ما دکتر روشنی هستند.&#x0A;&#x0A;این کلاس برنامه‌نویسی موبایل است که در دانشگاه ملی مهارت چمران گرگان برگزار می‌شود.
+</string>
 </resources>

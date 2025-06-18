@@ -34,4 +34,5 @@
     <string name="sample_note_title">Note Title Example That Might Be Too Long</string>
     <string name="enable_dark_mode">Enable Dark Mode</string>
     <string name="enable_notifications">Enable Notifications</string>
+    <string name="about_us_description">We are Mohammad Nazarkhani and Mahyar Galdiani. Our professor is Dr. Roshani.\n\nThis is a Mobile Programming class at the National University of Skills Chamran Gorgan.</string>
 </resources>
