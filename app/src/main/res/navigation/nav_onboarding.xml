@@ -9,7 +9,7 @@
         android:id="@+id/splashFragment"
         android:name="com.example.daftarak.ui.fragment.SplashFragment"
         android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" >
+        tools:layout="@layout/fragment_splash">
 
         <action
             android:id="@+id/action_splashFragment_to_viewPagerFragment"
@@ -18,10 +18,10 @@
         <!-- Navigate directly to main after splash if not first time -->
         <action
             android:id="@+id/action_splashFragment_to_notebooksFragment"
-            app:destination="@id/notebooksFragment"
+            app:destination="@id/nav_main"
+            app:launchSingleTop="true"
             app:popUpTo="@id/nav_onboarding"
-            app:popUpToInclusive="true"
-            app:launchSingleTop="true" />
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -32,9 +32,9 @@
 
         <action
             android:id="@+id/action_viewPagerFragment_to_notebooksFragment"
-            app:destination="@id/notebooksFragment"
+            app:destination="@id/nav_main"
+            app:launchSingleTop="true"
             app:popUpTo="@id/nav_onboarding"
-            app:popUpToInclusive="true"
-            app:launchSingleTop="true" />
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

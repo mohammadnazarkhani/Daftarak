@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.daftarak.MainActivity;
 import com.example.daftarak.R;
 
 public class SplashFragment extends Fragment {
@@ -27,6 +28,11 @@ public class SplashFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        if (getActivity() instanceof MainActivity) {
+            MainActivity main = (MainActivity) getActivity();
+            main.hideUI(); // method you create to hide FAB and BottomNav
+        }
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             boolean isFirstTime = requireContext()

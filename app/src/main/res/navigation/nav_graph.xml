@@ -1,7 +1,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/nav_onboarding">
 
     <include app:graph="@navigation/nav_onboarding" />
     <include app:graph="@navigation/nav_main" />

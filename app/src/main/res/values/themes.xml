@@ -43,4 +43,8 @@
         <item name="itemTextColor">@color/primary</item>
     </style>
 
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- No action bar -->
+    </style>
+
 </resources>
