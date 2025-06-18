@@ -3,6 +3,7 @@ package com.example.daftarak;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        Window window = getWindow();
+        window.setStatusBarColor(getColor(R.color.primary));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -57,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportActionBar().hide(); // or show
                 }
 
-                // Hide UI on splash and onboarding fragments
+                // Show UI on main nav fragments
                 if (id != R.id.splashFragment || id != R.id.viewPagerFragment)
                     showUI();
             });
