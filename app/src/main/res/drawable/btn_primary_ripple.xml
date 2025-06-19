@@ -1,4 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
     android:color="@color/primary_light">
+
+    <!-- Ripple mask (optional but improves appearance) -->
+    <item android:id="@android:id/mask"
+        android:drawable="@color/primary_light" />
+
+    <!-- Your button shape background -->
     <item android:drawable="@drawable/btn_primary" />
 </ripple>

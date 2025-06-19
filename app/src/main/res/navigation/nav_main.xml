@@ -10,6 +10,7 @@
         android:name="com.example.daftarak.ui.fragment.NotebooksFragment"
         android:label="Notebooks"
         tools:layout="@layout/fragment_notebooks" />
+
     <fragment
         android:id="@+id/notesFragment"
         android:name="com.example.daftarak.ui.fragment.NotesFragment"
@@ -26,9 +27,17 @@
         android:name="com.example.daftarak.ui.fragment.SettingsFragment"
         android:label="Settings"
         tools:layout="@layout/fragment_settings" />
+
     <fragment
         android:id="@+id/aboutUsFragment"
         android:name="com.example.daftarak.ui.fragment.AboutUsFragment"
         android:label="About Us"
         tools:layout="@layout/fragment_about_us" />
+
+    <dialog
+        android:id="@+id/createNotebookDialogFragment"
+        android:name="com.example.daftarak.ui.fragment.dialog.CreateNotebookDialogFragment"
+        android:label="Create Notebook"
+        tools:layout="@layout/fragment_create_notebook_dialog" />
+
 </navigation>

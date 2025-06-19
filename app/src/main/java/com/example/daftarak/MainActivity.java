@@ -14,6 +14,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.daftarak.R;
 import com.example.daftarak.utility.UiExtensions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
     private FloatingActionButton fab;
+    private NavController navController; // Store for reuse
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,50 +44,38 @@ public class MainActivity extends AppCompatActivity {
 
         NavHostFragment navHostFragment =
                 (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
-        NavController navController = null;
         if (navHostFragment != null) {
             navController = navHostFragment.getNavController();
-        }
-
-        if (navController != null) {
             NavigationUI.setupWithNavController(bottomNavigationView, navController);
-        }
 
-        if (navController != null) {
             navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
                 int id = destination.getId();
                 String label = destination.getLabel() != null ? destination.getLabel().toString() : "unknown";
                 Log.d("MainActivity", "Navigated to destination: id=" + id + ", label=" + label);
 
+                // Action bar title
                 if (getSupportActionBar() != null) {
-                    getSupportActionBar().hide(); // or show
+                    getSupportActionBar().setTitle(label);
+                    getSupportActionBar().show();
                 }
 
-                // Show UI on main nav fragments
-                if (id != R.id.splashFragment || id != R.id.viewPagerFragment)
+                // Show/hide bottom UI
+                if (id != R.id.splashFragment && id != R.id.viewPagerFragment) {
                     showUI();
-            });
-        }
-
-        if (navController != null) {
-            navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
-                int id = destination.getId();
-                String label = destination.getLabel() != null ? destination.getLabel().toString() : "unknown";
-                Log.d("MainActivity", "Navigated to destination: id=" + id + ", label=" + label);
-
-                if (getSupportActionBar() != null) {
-                    getSupportActionBar().setTitle(label);  // <-- Set the ActionBar title here
-                    getSupportActionBar().show();            // Show the ActionBar
-                }
-
-                // Show UI on main nav fragments
-                if (id != R.id.splashFragment && id != R.id.viewPagerFragment)
-                    showUI();
-                else
+                } else {
                     hideUI();
+                }
             });
         }
 
+        fab.setOnClickListener(v -> {
+            if (navController != null &&
+                    navController.getCurrentDestination() != null &&
+                    navController.getCurrentDestination().getId() == R.id.notebooksFragment) {
+
+                navController.navigate(R.id.createNotebookDialogFragment);
+            }
+        });
     }
 
     public void hideUI() {
@@ -101,5 +91,4 @@ public class MainActivity extends AppCompatActivity {
         Window window = getWindow();
         UiExtensions.setNavigationBarColor(window, getColor(R.color.secondary));
     }
-
 }

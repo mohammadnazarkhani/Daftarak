@@ -30,24 +30,23 @@ public class NotebooksFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_notebooks, container, false);
 
-        // Step 1: Init RecyclerView
+        // Init RecyclerView
         rvNotebooks = view.findViewById(R.id.rvNotebooks);
-        rvNotebooks.setLayoutManager(new LinearLayoutManager(getContext()));
-            adapter = new NotebookAdapter(notebook -> {
-                Bundle bundle = new Bundle();
-                bundle.putInt("notebookId", notebook.getId());
+        rvNotebooks.setLayoutManager(new LinearLayoutManager(requireContext()));
 
-                NavHostFragment.findNavController(this).navigate(R.id.notesFragment, bundle);
-            });
+        adapter = new NotebookAdapter(notebook -> {
+            Bundle bundle = new Bundle();
+            bundle.putInt("notebook_id", notebook.getId()); // Match argument name in nav_graph
+            NavHostFragment.findNavController(this).navigate(R.id.notesFragment, bundle);
+        });
 
-            rvNotebooks.setAdapter(adapter);
+        rvNotebooks.setAdapter(adapter);
 
-        // Step 2: Setup ViewModel
+        // ViewModel
         viewModel = new ViewModelProvider(this).get(NotebookViewModel.class);
 
-        // Step 3: Observe notebooks LiveData
+        // Observe LiveData
         viewModel.getAllNotebooks().observe(getViewLifecycleOwner(), notebooks -> {
-            // Update the adapter's data
             adapter.setNotebooks(notebooks);
         });
 
