@@ -61,4 +61,18 @@
     <string name="date">Date</string>
     <string name="ascending">Ascending</string>
     <string name="descending">Descending</string>
+    <string name="select_theme">Select Theme</string>
+    <string name="select_language">Select Language</string>
+
+    <string-array name="theme_options">
+        <item>System default</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+
+    <string-array name="language_options">
+        <item>System default</item>
+        <item>English</item>
+        <item>فارسی</item>
+    </string-array>
 </resources>

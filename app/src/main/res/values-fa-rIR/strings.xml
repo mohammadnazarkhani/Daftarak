@@ -63,4 +63,18 @@
     <string name="date">تاریخ</string>
     <string name="ascending">صعودی</string>
     <string name="descending">نزولی</string>
+    <string name="select_theme">انتخاب تم</string>
+    <string name="select_language">انتخاب زبان</string>
+
+    <string-array name="theme_options">
+        <item>پیش‌فرض سیستم</item>
+        <item>روشن</item>
+        <item>تاریک</item>
+    </string-array>
+
+    <string-array name="language_options">
+        <item>پیش‌فرض سیستم</item>
+        <item>انگلیسی</item>
+        <item>فارسی</item>
+    </string-array>
 </resources>

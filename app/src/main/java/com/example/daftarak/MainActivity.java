@@ -1,5 +1,7 @@
 package com.example.daftarak;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -16,7 +19,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.daftarak.R;
+import com.example.daftarak.utility.LocaleHelper;
 import com.example.daftarak.utility.UiExtensions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -28,9 +31,34 @@ public class MainActivity extends AppCompatActivity {
     private NavController navController; // Store for reuse
 
     @Override
+    protected void attachBaseContext(Context newBase) {
+        SharedPreferences prefs = newBase.getSharedPreferences("app_prefs", Context.MODE_PRIVATE);
+        String langPref = prefs.getString("pref_language", "system");
+        Context context = LocaleHelper.setLocale(newBase, langPref);
+        super.attachBaseContext(context);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+
+        SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
+
+        // Apply theme preference before setContentView
+        String themePref = prefs.getString("pref_theme", "system");
+        switch (themePref) {
+            case "light":
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                break;
+            case "dark":
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                break;
+            default:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                break;
+        }
+
         setContentView(R.layout.activity_main);
 
         UiExtensions.setTopToolBarColor(getWindow(), this, getColor(R.color.primary_light));
@@ -73,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     hideFab();
                 }
-
             });
         }
 
@@ -106,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     public void hideUI() {
@@ -126,8 +152,6 @@ public class MainActivity extends AppCompatActivity {
             fab.setVisibility(View.GONE);
         }
     }
-
-
 
     public void showUI() {
         if (bottomNavigationView != null) bottomNavigationView.setVisibility(View.VISIBLE);

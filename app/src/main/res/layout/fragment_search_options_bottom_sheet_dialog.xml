@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -10,29 +9,29 @@
         android:id="@+id/tv_search_options"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:text="@string/search_in"
-        android:textAppearance="?attr/textAppearanceHeadlineSmall"
-        android:layout_marginBottom="8dp"/>
+        android:textAppearance="?attr/textAppearanceHeadlineSmall" />
 
     <CheckBox
         android:id="@+id/checkbox_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/title"
-        android:checked="true"/>
+        android:checked="true"
+        android:text="@string/title" />
 
     <CheckBox
         android:id="@+id/checkbox_body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/body"
-        android:checked="true"/>
+        android:checked="true"
+        android:text="@string/body" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_apply"
         style="@style/Widget.Material3.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/apply"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:text="@string/apply" />
 </LinearLayout>

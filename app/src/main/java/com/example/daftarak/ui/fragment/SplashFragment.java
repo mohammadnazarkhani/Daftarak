@@ -29,26 +29,24 @@ public class SplashFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        if (getActivity() instanceof MainActivity) {
-            MainActivity main = (MainActivity) getActivity();
-            main.hideUI(); // method you create to hide FAB and BottomNav
-        }
+        view.post(() -> {
+            new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                if (!isAdded()) return;
 
-        new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            boolean isFirstTime = requireContext()
-                    .getSharedPreferences("onboarding", 0)
-                    .getBoolean("firstTime", true);
+                boolean isFirstTime = requireContext()
+                        .getSharedPreferences("onboarding", 0)
+                        .getBoolean("firstTime", true);
 
-            if (isFirstTime) {
-                NavHostFragment.findNavController(SplashFragment.this)
-                        .navigate(R.id.action_splashFragment_to_viewPagerFragment);
-            } else {
-                NavHostFragment.findNavController(SplashFragment.this)
-                        .navigate(R.id.action_splashFragment_to_notebooksFragment);
-            }
-
-
-        }, 2000);
+                if (isFirstTime) {
+                    NavHostFragment.findNavController(this)
+                            .navigate(R.id.action_splashFragment_to_viewPagerFragment);
+                } else {
+                    NavHostFragment.findNavController(this)
+                            .navigate(R.id.action_splashFragment_to_notebooksFragment);
+                }
+            }, 2000);
+        });
     }
+
 
 }
