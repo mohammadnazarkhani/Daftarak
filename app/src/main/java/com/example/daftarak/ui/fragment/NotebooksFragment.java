@@ -1,7 +1,9 @@
 package com.example.daftarak.ui.fragment;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -14,7 +16,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.daftarak.R;
+import com.example.daftarak.data.model.Notebook;
 import com.example.daftarak.ui.adapter.NotebookAdapter;
+import com.example.daftarak.ui.fragment.dialog.CreateNotebookDialogFragment;
 import com.example.daftarak.ui.viewmodel.NotebookViewModel;
 
 public class NotebooksFragment extends Fragment {
@@ -22,33 +26,62 @@ public class NotebooksFragment extends Fragment {
     private NotebookViewModel viewModel;
     private NotebookAdapter adapter;
     private RecyclerView rvNotebooks;
+    private int selectedPosition = -1;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.fragment_notebooks, container, false);
 
-        // Initialize RecyclerView and its Adapter
         rvNotebooks = view.findViewById(R.id.rvNotebooks);
         rvNotebooks.setLayoutManager(new LinearLayoutManager(requireContext()));
 
-        adapter = new NotebookAdapter(notebook -> {
-            // Navigate to notesFragment passing notebook_id as argument
-            Bundle bundle = new Bundle();
-            bundle.putInt("notebook_id", notebook.getId());
-            NavHostFragment.findNavController(this).navigate(R.id.notesFragment, bundle);
-        });
+        adapter = new NotebookAdapter(
+                notebook -> {
+                    // Navigate to notes fragment
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("notebook_id", notebook.getId());
+                    NavHostFragment.findNavController(this).navigate(R.id.notesFragment, bundle);
+                },
+                new NotebookAdapter.OnNotebookContextMenuListener() {
+                    @Override
+                    public void onEdit(Notebook notebook) {
+                        CreateNotebookDialogFragment dialog = CreateNotebookDialogFragment
+                                .newInstance(notebook.getId(), notebook.getTitle());
+                        dialog.show(getParentFragmentManager(), "editNotebook");
+                    }
+
+                    @Override
+                    public void onDelete(Notebook notebook) {
+                        showDeleteConfirmationDialog(notebook);
+                    }
+                }
+        );
 
         rvNotebooks.setAdapter(adapter);
+        registerForContextMenu(rvNotebooks); // optional if not needed
 
-        // Initialize ViewModel and observe notebooks list
         viewModel = new ViewModelProvider(this).get(NotebookViewModel.class);
-        viewModel.getAllNotebooks().observe(getViewLifecycleOwner(), notebooks -> {
-            adapter.setNotebooks(notebooks);
-        });
+        viewModel.getAllNotebooks().observe(getViewLifecycleOwner(), adapter::setNotebooks);
 
         return view;
+    }
+
+    private void showDeleteConfirmationDialog(Notebook notebook) {
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Delete Notebook")
+                .setMessage("Are you sure you want to delete this notebook?")
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    viewModel.delete(notebook);
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
+    }
+
+    // Optionally override if needed, but logic is now in the adapter
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        return super.onContextItemSelected(item);
     }
 }

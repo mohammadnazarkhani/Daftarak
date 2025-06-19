@@ -37,4 +37,17 @@
     <string name="about_us_description">
     ما محمد نظرخانی و مهیار گلدیانی هستیم. استاد ما دکتر روشنی هستند.&#x0A;&#x0A;این کلاس برنامه‌نویسی موبایل است که در دانشگاه ملی مهارت چمران گرگان برگزار می‌شود.
 </string>
+    <string name="new_notebook">دفترچه جدید</string>
+    <string name="title">عنوان</string>
+    <string name="cancel">انصراف</string>
+    <string name="create">ایجاد</string>
+    <string name="add">افزودن</string>
+    <string name="body">بدنه</string>
+    <string name="new_note">یادداشت جدید</string>
+    <string name="write_you_title_here">عنوان را در اینجا وارد کنید...</string>
+    <string name="write_your_note_here">یادداشتتان را در اینجا وارد کنید...</string>
+    <string name="edit">ویرایش</string>
+    <string name="delete">حذف</string>
+    <string name="update">بروز رسانی</string>
+    <string name="edit_notebook">ویرایش دفترچه</string>
 </resources>

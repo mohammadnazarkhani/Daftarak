@@ -36,7 +36,7 @@
     <string name="enable_notifications">Enable Notifications</string>
     <string name="about_us_description">We are Mohammad Nazarkhani and Mahyar Galdiani. Our professor is Dr. Roshani.\n\nThis is a Mobile Programming class at the National University of Skills Chamran Gorgan.</string>
     <string name="new_notebook">New Notebook</string>
-    <string name="title">Title:</string>
+    <string name="title">Title</string>
     <string name="cancel">Cancel</string>
     <string name="create">Create</string>
     <string name="add">Add</string>
@@ -44,4 +44,8 @@
     <string name="new_note">New Note</string>
     <string name="write_you_title_here">Write you title here...</string>
     <string name="write_your_note_here">Write your note here...</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
+    <string name="edit_notebook">Edit Notebook</string>
 </resources>
