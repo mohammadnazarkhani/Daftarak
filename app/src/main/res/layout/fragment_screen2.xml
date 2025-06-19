@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,68 +8,92 @@
     android:background="@color/screen2_bg"
     tools:context=".ui.fragment.onboarding.screens.Screen2Fragment">
 
+    <!-- Guidelines for consistent vertical structure -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <!-- Image with 1:1 aspect ratio -->
     <ImageView
         android:id="@+id/ivScreen2"
-        android:layout_width="match_parent"
-        android:layout_height="355dp"
-        android:layout_marginTop="64dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:contentDescription="@string/screen_img_description"
-        android:cropToPadding="true"
         android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/screen2_img"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="@id/guideline_top"
+        app:layout_constraintBottom_toTopOf="@id/layoutTextContent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/screen2_img" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Text content -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/layoutTextContent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivScreen2"
+        app:layout_constraintBottom_toTopOf="@id/btnNext2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivScreen2">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:id="@+id/txtScreen2TitlePt1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_medium"
             android:text="@string/scrren2_title_line1"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="26sp"
             android:textAlignment="center"
-            android:textSize="30sp" />
+            android:textColor="@color/text_dark" />
 
         <TextView
             android:id="@+id/txtScreen2TitlePt2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_medium"
             android:text="@string/scrren2_title_line2"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="26sp"
             android:textAlignment="center"
-            android:textSize="30sp" />
+            android:textColor="@color/text_dark"
+            android:layout_marginTop="4dp" />
 
         <TextView
             android:id="@+id/txtScreen2Description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/roboto_light"
             android:text="@string/screen2_description"
-            android:textSize="20sp" />
+            android:fontFamily="@font/roboto_light"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:textColor="@color/text_dark"
+            android:layout_marginTop="16dp" />
     </LinearLayout>
 
+    <!-- Next button -->
     <TextView
         android:id="@+id/btnNext2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:fontFamily="@font/roboto_medium"
         android:text="@string/next"
         android:textColor="@color/next_btn"
-        android:textSize="30sp"
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="20sp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

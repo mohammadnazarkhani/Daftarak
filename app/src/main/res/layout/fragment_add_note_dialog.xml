@@ -1,58 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bottom_sheet_dialog_bg"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".ui.fragment.dialog.AddNoteDialogFragment">
+    android:padding="24dp"
+    android:background="@drawable/bottom_sheet_dialog_bg"
+    android:clipToPadding="false">
 
-    <TextView
+    <!-- Title -->
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/dialogTitleNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/new_note"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textColor="?attr/colorOnSurface" />
 
-
-    <TextView
+    <!-- Note Title Label -->
+    <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_regular"
         android:text="@string/title"
-        android:textSize="20sp" />
+        android:textSize="18sp"
+        android:textColor="?attr/colorOnSurfaceVariant" />
 
-    <EditText
-        android:id="@+id/editTextNoteTitle"
+    <!-- Note Title Input -->
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:autofillHints="name"
-        android:hint="@string/write_you_title_here"
-        android:background="@drawable/edit_text_bg" />
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp">
 
-    <TextView
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextNoteTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="@string/write_you_title_here"
+            android:autofillHints="name"
+            android:textColor="?attr/colorOnSurface"
+            android:textColorHint="?attr/colorOnSurfaceVariant" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Note Body Label -->
+    <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto_regular"
         android:text="@string/body"
-        android:textSize="20sp" />
+        android:textSize="18sp"
+        android:textColor="?attr/colorOnSurfaceVariant" />
 
-    <EditText
-        android:id="@+id/editTextNoteBody"
+    <!-- Note Body Input -->
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/write_your_note_here"
-        android:minLines="3"
-        android:gravity="top"
         android:layout_marginTop="8dp"
-        android:background="@drawable/edit_text_bg" />
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextNoteBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/write_your_note_here"
+            android:minLines="3"
+            android:gravity="top"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="?attr/colorOnSurface"
+            android:textColorHint="?attr/colorOnSurfaceVariant" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Action Buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,39 +92,48 @@
         android:gravity="end"
         android:orientation="horizontal">
 
-        <Button
+        <!-- Delete (hidden by default) -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnDeleteNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
-            android:background="@drawable/btn_cancel_outline_ripple"
-            android:backgroundTint="@android:color/transparent"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/delete"
+            android:textSize="16sp"
             android:textColor="@android:color/holo_red_dark"
-            android:textSize="20sp" />
+            app:strokeColor="@android:color/holo_red_dark"
+            app:strokeWidth="1dp"
+            app:backgroundTint="@android:color/transparent"
+            app:cornerRadius="16dp" />
 
-        <Button
+        <!-- Cancel -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCancelNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:background="@drawable/btn_cancel_outline_ripple"
-            android:backgroundTint="@android:color/transparent"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/cancel"
+            android:textSize="16sp"
             android:textColor="@color/primary"
-            android:textSize="20sp" />
+            app:strokeColor="@color/primary"
+            app:strokeWidth="1dp"
+            app:backgroundTint="@android:color/transparent"
+            app:cornerRadius="16dp" />
 
-        <Button
+        <!-- Add -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAddNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:background="@drawable/btn_primary_ripple"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/add"
-            android:textSize="20sp" />
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/primary"
+            app:cornerRadius="16dp" />
     </LinearLayout>
 
 </LinearLayout>

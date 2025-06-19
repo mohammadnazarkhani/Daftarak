@@ -1,43 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/searchBarContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:background="@drawable/bg_search_bar"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:padding="12dp">
+    android:layout_margin="12dp"
+    android:backgroundTint="?attr/colorSurface"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="4dp"
+    app:strokeColor="@color/md_theme_outline"
+    app:strokeWidth="0.75dp">
 
-    <ImageButton
-        android:id="@+id/btn_search_options"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/search_options"
-        android:src="@drawable/ic_filter_list"
-        app:tint="?attr/colorOnSurface" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
 
-    <EditText
-        android:id="@+id/search_input"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@null"
-        android:hint="@string/search"
-        android:imeOptions="actionSearch"
-        android:inputType="text"
-        android:textColor="?attr/colorOnSurface"
-        android:textColorHint="?attr/colorOnSurfaceVariant" />
+        <!-- Filter / Options Button -->
+        <ImageButton
+            android:id="@+id/btn_search_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/search_options"
+            android:src="@drawable/ic_filter_list"
+            app:tint="?attr/colorOnSurface"
+            android:padding="8dp" />
 
-    <ImageButton
-        android:id="@+id/btn_sort_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/sort_type"
-        android:src="@drawable/ic_sort"
-        app:tint="?attr/colorOnSurface" />
+        <!-- Material3 Search Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense"
+            app:boxBackgroundMode="none">
 
-</LinearLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/search_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="@string/search"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:textColor="?attr/colorOnSurface"
+                android:textColorHint="?attr/colorOnSurfaceVariant"
+                android:fontFamily="@font/roboto_regular" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Sort Type Button -->
+        <ImageButton
+            android:id="@+id/btn_sort_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/sort_type"
+            android:src="@drawable/ic_sort"
+            app:tint="?attr/colorOnSurface"
+            android:padding="8dp" />
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
