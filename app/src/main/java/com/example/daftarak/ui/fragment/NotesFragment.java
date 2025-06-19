@@ -13,7 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.daftarak.R;
+import com.example.daftarak.data.model.Note;
+import com.example.daftarak.data.repository.NoteRepository;
 import com.example.daftarak.ui.adapter.NoteAdapter;
+import com.example.daftarak.ui.fragment.dialog.AddNoteDialogFragment;
 import com.example.daftarak.ui.fragment.dialog.NotebookListBottomSheetDialogFragment;
 import com.example.daftarak.ui.viewmodel.NoteViewModel;
 
@@ -22,7 +25,7 @@ import java.util.ArrayList;
 public class NotesFragment extends Fragment {
 
     private static final String ARG_NOTEBOOK_ID = "notebook_id";
-    private Integer notebookId = null; // nullable
+    private Integer notebookId = null;
 
     private RecyclerView notesRecyclerView;
     private NoteAdapter noteAdapter;
@@ -53,24 +56,29 @@ public class NotesFragment extends Fragment {
         notesRecyclerView = view.findViewById(R.id.notesRecyclerView);
         notesRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
-        noteAdapter = new NoteAdapter(new ArrayList<>());
+        noteAdapter = new NoteAdapter(new ArrayList<>(),
+                note -> {
+                    // Item click → Edit note
+                    AddNoteDialogFragment dialog = AddNoteDialogFragment.newInstance(notebookId, note);
+                    dialog.show(getParentFragmentManager(), "EditNoteDialog");
+                },
+                note -> {
+                    // Delete click → Delete note
+                    NoteRepository repository = new NoteRepository(requireContext());
+                    repository.deleteNote(note);
+                }
+        );
         notesRecyclerView.setAdapter(noteAdapter);
 
         noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
 
         if (notebookId != null && notebookId != -1) {
-            // Show notes only for the selected notebook
-            noteViewModel.getNotesByNotebookId(notebookId).observe(getViewLifecycleOwner(), notes -> {
-                noteAdapter.setNotes(notes);
-            });
+            noteViewModel.getNotesByNotebookId(notebookId)
+                    .observe(getViewLifecycleOwner(), notes -> noteAdapter.setNotes(notes));
         } else {
-//            // Show all notes if no notebook ID was passed
-//            noteViewModel.getAllNotes().observe(getViewLifecycleOwner(), notes -> {
-//                noteAdapter.setNotes(notes);
-//            });
-            NotebookListBottomSheetDialogFragment bottomSheet = new NotebookListBottomSheetDialogFragment();
-            bottomSheet.show(requireActivity().getSupportFragmentManager(), "NotebookListBottomSheet");
-
+            // Show notebook selector
+            new NotebookListBottomSheetDialogFragment()
+                    .show(requireActivity().getSupportFragmentManager(), "NotebookListBottomSheet");
         }
     }
 }

@@ -6,6 +6,9 @@ import androidx.room.ColumnInfo;
 import androidx.room.ForeignKey;
 import androidx.annotation.NonNull;
 
+import kotlinx.serialization.Serializable;
+
+@Serializable
 @Entity(tableName = "notes",
         foreignKeys = @ForeignKey(
                 entity = Notebook.class,
@@ -13,7 +16,7 @@ import androidx.annotation.NonNull;
                 childColumns = "notebook_id",
                 onDelete = ForeignKey.CASCADE
         ))
-public class Note {
+public class Note implements java.io.Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private int id;

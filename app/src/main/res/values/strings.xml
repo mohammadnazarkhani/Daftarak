@@ -48,4 +48,5 @@
     <string name="delete">Delete</string>
     <string name="update">Update</string>
     <string name="edit_notebook">Edit Notebook</string>
+    <string name="delete_note">Delete Note</string>
 </resources>

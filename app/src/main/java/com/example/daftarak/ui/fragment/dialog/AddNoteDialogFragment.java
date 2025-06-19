@@ -20,6 +20,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 public class AddNoteDialogFragment extends BottomSheetDialogFragment {
 
     private static final String ARG_NOTEBOOK_ID = "notebook_id";
+    private static final String ARG_NOTE = "note";
 
     private EditText editTextTitle;
     private EditText editTextBody;
@@ -27,11 +28,21 @@ public class AddNoteDialogFragment extends BottomSheetDialogFragment {
     private Button btnCancel;
 
     private int notebookId;
+    private Note existingNote;
 
     public static AddNoteDialogFragment newInstance(int notebookId) {
         AddNoteDialogFragment fragment = new AddNoteDialogFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_NOTEBOOK_ID, notebookId);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    public static AddNoteDialogFragment newInstance(int notebookId, Note noteToEdit) {
+        AddNoteDialogFragment fragment = new AddNoteDialogFragment();
+        Bundle args = new Bundle();
+        args.putInt(ARG_NOTEBOOK_ID, notebookId);
+        args.putSerializable(ARG_NOTE, noteToEdit);
         fragment.setArguments(args);
         return fragment;
     }
@@ -48,21 +59,25 @@ public class AddNoteDialogFragment extends BottomSheetDialogFragment {
 
         View view = inflater.inflate(R.layout.fragment_add_note_dialog, container, false);
 
-        // Extract notebookId from args
         if (getArguments() != null) {
             notebookId = getArguments().getInt(ARG_NOTEBOOK_ID, -1);
+            existingNote = (Note) getArguments().getSerializable(ARG_NOTE);
         }
 
-        // Bind views
         editTextTitle = view.findViewById(R.id.editTextNoteTitle);
         editTextBody = view.findViewById(R.id.editTextNoteBody);
         btnAdd = view.findViewById(R.id.btnAddNote);
         btnCancel = view.findViewById(R.id.btnCancelNote);
 
-        // Cancel button dismisses dialog
+        // Pre-fill fields if editing
+        if (existingNote != null) {
+            editTextTitle.setText(existingNote.getTitle());
+            editTextBody.setText(existingNote.getBody());
+            btnAdd.setText(R.string.update); // Change text from "Add" to "Update"
+        }
+
         btnCancel.setOnClickListener(v -> dismiss());
 
-        // Add button logic
         btnAdd.setOnClickListener(v -> {
             String title = editTextTitle.getText().toString().trim();
             String body = editTextBody.getText().toString().trim();
@@ -72,11 +87,21 @@ public class AddNoteDialogFragment extends BottomSheetDialogFragment {
                 return;
             }
 
-            Note note = new Note(title, body, System.currentTimeMillis(), notebookId);
             NoteRepository repository = new NoteRepository(requireContext());
-            repository.insertNote(note);
 
-            Toast.makeText(requireContext(), "Note added", Toast.LENGTH_SHORT).show();
+            if (existingNote != null) {
+                // Edit mode
+                existingNote.setTitle(title);
+                existingNote.setBody(body);
+                repository.updateNote(existingNote);
+                Toast.makeText(requireContext(), "Note updated", Toast.LENGTH_SHORT).show();
+            } else {
+                // Add mode
+                Note newNote = new Note(title, body, System.currentTimeMillis(), notebookId);
+                repository.insertNote(newNote);
+                Toast.makeText(requireContext(), "Note added", Toast.LENGTH_SHORT).show();
+            }
+
             dismiss();
         });
 
