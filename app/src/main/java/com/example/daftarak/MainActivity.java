@@ -4,12 +4,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.navigation.NavBackStackEntry;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
@@ -65,28 +67,71 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     hideUI();
                 }
+
+                if (id == R.id.notebooksFragment || id == R.id.notesFragment) {
+                    showUI();
+                } else {
+                    hideFab();
+                }
+
             });
         }
 
         fab.setOnClickListener(v -> {
-            if (navController != null &&
-                    navController.getCurrentDestination() != null &&
-                    navController.getCurrentDestination().getId() == R.id.notebooksFragment) {
+            if (navController == null || navController.getCurrentDestination() == null) return;
 
+            int currentDestId = navController.getCurrentDestination().getId();
+
+            if (currentDestId == R.id.notebooksFragment) {
                 navController.navigate(R.id.createNotebookDialogFragment);
+
+            } else if (currentDestId == R.id.notesFragment) {
+                NavBackStackEntry backStackEntry = navController.getCurrentBackStackEntry();
+                if (backStackEntry != null) {
+                    Bundle args = backStackEntry.getArguments();
+                    if (args != null && args.containsKey("notebook_id")) {
+                        int notebookId = args.getInt("notebook_id", -1);
+                        if (notebookId != -1) {
+                            Bundle bundle = new Bundle();
+                            bundle.putInt("notebook_id", notebookId);
+                            navController.navigate(R.id.addNoteDialogFragment, bundle);
+                        } else {
+                            Toast.makeText(this, "Please select a notebook first", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(this, "Please select a notebook first", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(this, "Navigation state error", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
     }
 
     public void hideUI() {
         if (bottomNavigationView != null) bottomNavigationView.setVisibility(View.GONE);
-        if (fab != null) fab.setVisibility(View.GONE);
+        hideFab();
         if (getSupportActionBar() != null) getSupportActionBar().hide();
     }
 
+    public void showFab() {
+        if (fab != null && fab.getVisibility() != View.VISIBLE) {
+            fab.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void hideFab() {
+        if (fab != null && fab.getVisibility() != View.GONE) {
+            fab.setVisibility(View.GONE);
+        }
+    }
+
+
+
     public void showUI() {
         if (bottomNavigationView != null) bottomNavigationView.setVisibility(View.VISIBLE);
-        if (fab != null) fab.setVisibility(View.VISIBLE);
+        showFab();
         if (getSupportActionBar() != null) getSupportActionBar().show();
         Window window = getWindow();
         UiExtensions.setNavigationBarColor(window, getColor(R.color.secondary));

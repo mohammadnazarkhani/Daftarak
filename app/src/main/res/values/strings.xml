@@ -39,4 +39,9 @@
     <string name="title">Title:</string>
     <string name="cancel">Cancel</string>
     <string name="create">Create</string>
+    <string name="add">Add</string>
+    <string name="body">Body</string>
+    <string name="new_note">New Note</string>
+    <string name="write_you_title_here">Write you title here...</string>
+    <string name="write_your_note_here">Write your note here...</string>
 </resources>

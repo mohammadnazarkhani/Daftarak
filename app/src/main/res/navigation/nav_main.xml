@@ -16,10 +16,17 @@
         android:name="com.example.daftarak.ui.fragment.NotesFragment"
         android:label="Notes"
         tools:layout="@layout/fragment_notes">
+
         <argument
             android:name="notebook_id"
-            android:defaultValue="@null"
-            app:argType="integer" />
+            app:argType="integer"
+            android:defaultValue="-1" />
+
+        <dialog
+            android:id="@+id/addNoteDialogFragment"
+            android:name="com.example.daftarak.ui.fragment.dialog.AddNoteDialogFragment"
+            android:label="Add Note"
+            tools:layout="@layout/fragment_add_note_dialog" />
     </fragment>
 
     <fragment
@@ -40,4 +47,9 @@
         android:label="Create Notebook"
         tools:layout="@layout/fragment_create_notebook_dialog" />
 
+    <dialog
+        android:id="@+id/addNoteDialogFragment"
+        android:name="com.example.daftarak.ui.fragment.dialog.AddNoteDialogFragment"
+        android:label="Add Note"
+        tools:layout="@layout/fragment_add_note_dialog" />
 </navigation>

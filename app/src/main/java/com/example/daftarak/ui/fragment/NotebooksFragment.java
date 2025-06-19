@@ -30,22 +30,21 @@ public class NotebooksFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_notebooks, container, false);
 
-        // Init RecyclerView
+        // Initialize RecyclerView and its Adapter
         rvNotebooks = view.findViewById(R.id.rvNotebooks);
         rvNotebooks.setLayoutManager(new LinearLayoutManager(requireContext()));
 
         adapter = new NotebookAdapter(notebook -> {
+            // Navigate to notesFragment passing notebook_id as argument
             Bundle bundle = new Bundle();
-            bundle.putInt("notebook_id", notebook.getId()); // Match argument name in nav_graph
+            bundle.putInt("notebook_id", notebook.getId());
             NavHostFragment.findNavController(this).navigate(R.id.notesFragment, bundle);
         });
 
         rvNotebooks.setAdapter(adapter);
 
-        // ViewModel
+        // Initialize ViewModel and observe notebooks list
         viewModel = new ViewModelProvider(this).get(NotebookViewModel.class);
-
-        // Observe LiveData
         viewModel.getAllNotebooks().observe(getViewLifecycleOwner(), notebooks -> {
             adapter.setNotebooks(notebooks);
         });

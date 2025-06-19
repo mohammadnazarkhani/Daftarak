@@ -21,8 +21,7 @@ import java.util.ArrayList;
 public class NotesFragment extends Fragment {
 
     private static final String ARG_NOTEBOOK_ID = "notebook_id";
-    // Use Integer object to allow null (no argument case)
-    private Integer notebookId = null;
+    private Integer notebookId = null; // nullable
 
     private RecyclerView notesRecyclerView;
     private NoteAdapter noteAdapter;
@@ -30,17 +29,6 @@ public class NotesFragment extends Fragment {
 
     public NotesFragment() {
         // Required empty public constructor
-    }
-
-    // Factory method to create fragment with notebookId argument
-    public static NotesFragment newInstance(Integer notebookId) {
-        NotesFragment fragment = new NotesFragment();
-        if (notebookId != null) {
-            Bundle args = new Bundle();
-            args.putInt(ARG_NOTEBOOK_ID, notebookId);
-            fragment.setArguments(args);
-        }
-        return fragment;
     }
 
     @Override
@@ -69,13 +57,13 @@ public class NotesFragment extends Fragment {
 
         noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
 
-        if (notebookId != null) {
-            // Show notes for specific notebook
+        if (notebookId != null && notebookId != -1) {
+            // Show notes only for the selected notebook
             noteViewModel.getNotesByNotebookId(notebookId).observe(getViewLifecycleOwner(), notes -> {
                 noteAdapter.setNotes(notes);
             });
         } else {
-            // Show all notes if no notebookId provided (e.g., direct tab click)
+            // Show all notes if no notebook ID was passed
             noteViewModel.getAllNotes().observe(getViewLifecycleOwner(), notes -> {
                 noteAdapter.setNotes(notes);
             });
