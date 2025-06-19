@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/textViewTitle"
-        android:text="Select a Notebook"
+        android:text="@string/select_a_notebook"
         android:textSize="20sp"
         android:fontFamily="@font/roboto_medium"
         android:layout_width="wrap_content"

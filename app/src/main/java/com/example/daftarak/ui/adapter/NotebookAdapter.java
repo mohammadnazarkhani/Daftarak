@@ -90,7 +90,6 @@ public class NotebookAdapter extends RecyclerView.Adapter<NotebookAdapter.Notebo
 
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-            // Inflate your menu here
             menu.setHeaderTitle("Select Action");
             menu.add(this.getAdapterPosition(), R.id.menu_edit, 0, "Edit")
                     .setOnMenuItemClickListener(onEditMenu);

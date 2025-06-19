@@ -27,6 +27,7 @@ public class Notebook {
         this.createdAt = createdAt;
     }
 
+    // Getters and setters
     public void setId(int id) {
         this.id = id;
     }

@@ -90,7 +90,7 @@ public class SettingsFragment extends Fragment {
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                 }
 
-                Toast.makeText(rootView.getContext(), "Theme updated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(rootView.getContext(), R.string.theme_updated, Toast.LENGTH_SHORT).show();
             }
 
             @Override

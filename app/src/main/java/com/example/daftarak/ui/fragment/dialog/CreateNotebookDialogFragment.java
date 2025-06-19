@@ -56,7 +56,7 @@ public class CreateNotebookDialogFragment extends BottomSheetDialogFragment {
         titleEditText = view.findViewById(R.id.editTextTitle);
         btnCreate = view.findViewById(R.id.btnCreate);
         Button btnCancel = view.findViewById(R.id.btnCancel);
-        dialogTitle = view.findViewById(R.id.dialogTitle); // You need to add this TextView id in XML
+        dialogTitle = view.findViewById(R.id.dialogTitle);
 
         // Check if we have arguments for editing
         if (getArguments() != null) {
@@ -65,15 +65,15 @@ public class CreateNotebookDialogFragment extends BottomSheetDialogFragment {
 
             if (notebookId != 0) { // editing mode
                 titleEditText.setText(title);
-                btnCreate.setText(R.string.update); // Update button text to "Update"
-                dialogTitle.setText(R.string.edit_notebook); // Change dialog title text (you need to add this string)
+                btnCreate.setText(R.string.update);
+                dialogTitle.setText(R.string.edit_notebook);
             }
         }
 
         btnCreate.setOnClickListener(v -> {
             String title = titleEditText.getText().toString().trim();
             if (TextUtils.isEmpty(title)) {
-                Toast.makeText(getContext(), "Title cannot be empty", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.title_cannot_be_empty, Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -81,12 +81,12 @@ public class CreateNotebookDialogFragment extends BottomSheetDialogFragment {
                 // Create new notebook
                 Notebook notebook = new Notebook(0, title, System.currentTimeMillis());
                 notebookViewModel.insert(notebook);
-                Toast.makeText(getContext(), "Created New Notebook.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.created_new_notebook, Toast.LENGTH_SHORT).show();
             } else {
                 // Update existing notebook
                 Notebook notebook = new Notebook(notebookId, title, System.currentTimeMillis());
                 notebookViewModel.update(notebook);
-                Toast.makeText(getContext(), "Notebook Updated.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.notebook_updated, Toast.LENGTH_SHORT).show();
             }
             dismiss();
         });

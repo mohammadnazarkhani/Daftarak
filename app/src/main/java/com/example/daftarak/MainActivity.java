@@ -114,13 +114,13 @@ public class MainActivity extends AppCompatActivity {
                             bundle.putInt("notebook_id", notebookId);
                             navController.navigate(R.id.addNoteDialogFragment, bundle);
                         } else {
-                            Toast.makeText(this, "Please select a notebook first", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, R.string.please_select_a_notebook_first, Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(this, "Please select a notebook first", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, R.string.please_select_a_notebook_first, Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(this, "Navigation state error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.navigation_state_error, Toast.LENGTH_SHORT).show();
                 }
             }
         });

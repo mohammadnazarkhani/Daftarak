@@ -43,7 +43,6 @@ public class Note implements java.io.Serializable {
     }
 
     // Getters and setters
-
     public int getId() {
         return id;
     }

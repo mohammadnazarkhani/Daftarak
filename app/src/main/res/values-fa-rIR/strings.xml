@@ -73,4 +73,14 @@
     </string-array>
 
     <string name="enter_notebook_title">عنوان دفترجه را وارد کنید</string>
+    <string name="title_cannot_be_empty">عنوان نمی‌تواند خالی باشد</string>
+    <string name="created_new_notebook">دفترچه جدید ساخته ایجاد شد.</string>
+    <string name="notebook_updated">دفترچه بروزرسانی شد.</string>
+    <string name="delete_notebook">حذف دفترچه</string>
+    <string name="are_you_sure_you_want_to_delete_this_notebook">آیا مطمئن هستید که می‌خواهید این دفترچه را حذف کنید؟</string>
+    <string name="yes">بله</string>
+    <string name="theme_updated">تم بروزرسانی شد</string>
+    <string name="please_select_a_notebook_first">لطفا، ابتدا یک دفترچه را انتحاب نمایید</string>
+    <string name="navigation_state_error">خطای حالت ناوبری</string>
+    <string name="select_a_notebook">انتخاب یک دفترچه</string>
 </resources>

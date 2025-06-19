@@ -35,12 +35,10 @@ public class NotebookRepository {
         executorService.execute(() -> notebookDao.deleteNotebook(notebook));
     }
 
-    // Now returns LiveData<List<Notebook>> for reactive updates
     public LiveData<List<Notebook>> getAllNotebooks() {
         return notebookDao.getAllNotebooks();
     }
 
-    // Returns LiveData<Notebook> for reactive updates on a single notebook
     public LiveData<Notebook> getNotebookById(int id) {
         return notebookDao.getNotebookById(id);
     }

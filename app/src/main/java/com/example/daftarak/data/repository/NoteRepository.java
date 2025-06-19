@@ -35,7 +35,6 @@ public class NoteRepository {
         executorService.execute(() -> noteDao.deleteNote(note));
     }
 
-    // Return LiveData for all query methods
     public LiveData<java.util.List<Note>> getNotesSortedByDateAsc() {
         return noteDao.getAllNotesSortedByDateAsc();
     }

@@ -49,7 +49,6 @@ public class AddNoteDialogFragment extends BottomSheetDialogFragment {
     }
 
     public AddNoteDialogFragment() {
-        // Required empty public constructor
     }
 
     @Nullable

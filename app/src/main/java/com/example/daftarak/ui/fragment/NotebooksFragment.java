@@ -60,7 +60,7 @@ public class NotebooksFragment extends Fragment {
         );
 
         rvNotebooks.setAdapter(adapter);
-        registerForContextMenu(rvNotebooks); // optional if not needed
+        registerForContextMenu(rvNotebooks);
 
         viewModel = new ViewModelProvider(this).get(NotebookViewModel.class);
         viewModel.getAllNotebooks().observe(getViewLifecycleOwner(), adapter::setNotebooks);
@@ -70,16 +70,15 @@ public class NotebooksFragment extends Fragment {
 
     private void showDeleteConfirmationDialog(Notebook notebook) {
         new AlertDialog.Builder(requireContext())
-                .setTitle("Delete Notebook")
-                .setMessage("Are you sure you want to delete this notebook?")
-                .setPositiveButton("Yes", (dialog, which) -> {
+                .setTitle(R.string.delete_notebook)
+                .setMessage(R.string.are_you_sure_you_want_to_delete_this_notebook)
+                .setPositiveButton(R.string.yes, (dialog, which) -> {
                     viewModel.delete(notebook);
                 })
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton(R.string.cancel, null)
                 .show();
     }
 
-    // Optionally override if needed, but logic is now in the adapter
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         return super.onContextItemSelected(item);

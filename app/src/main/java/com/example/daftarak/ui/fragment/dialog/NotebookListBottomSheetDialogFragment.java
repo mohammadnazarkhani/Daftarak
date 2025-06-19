@@ -17,7 +17,6 @@ import com.example.daftarak.ui.adapter.NotebookListAdapter;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class NotebookListBottomSheetDialogFragment extends BottomSheetDialogFragment {
 

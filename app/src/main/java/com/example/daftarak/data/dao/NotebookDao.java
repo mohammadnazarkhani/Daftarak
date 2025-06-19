@@ -24,8 +24,8 @@ public interface NotebookDao {
     void deleteNotebook(Notebook notebook);
 
     @Query("SELECT * FROM notebooks ORDER BY created_at DESC")
-    LiveData<List<Notebook>> getAllNotebooks(); // changed return type to LiveData
+    LiveData<List<Notebook>> getAllNotebooks();
 
     @Query("SELECT * FROM notebooks WHERE id = :id LIMIT 1")
-    LiveData<Notebook> getNotebookById(int id); // changed return type to LiveData
+    LiveData<Notebook> getNotebookById(int id);
 }

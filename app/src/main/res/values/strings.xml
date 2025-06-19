@@ -71,4 +71,14 @@
     </string-array>
 
     <string name="enter_notebook_title">Enter Notebook Title</string>
+    <string name="title_cannot_be_empty">Title cannot be empty</string>
+    <string name="created_new_notebook">Created New Notebook.</string>
+    <string name="notebook_updated">Notebook Updated.</string>
+    <string name="delete_notebook">Delete Notebook</string>
+    <string name="are_you_sure_you_want_to_delete_this_notebook">Are you sure you want to delete this notebook?</string>
+    <string name="yes">Yes</string>
+    <string name="theme_updated">Theme updated</string>
+    <string name="please_select_a_notebook_first">Please select a notebook first</string>
+    <string name="navigation_state_error">Navigation state error</string>
+    <string name="select_a_notebook">Select a Notebook</string>
 </resources>
