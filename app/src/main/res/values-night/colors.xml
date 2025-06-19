@@ -10,5 +10,5 @@
     <color name="secondary_light">#374151</color>      <!-- Grayish dark -->
 
     <color name="text_light">#F5F5F5</color>          <!-- Light text on dark bg -->
-    <color name="text_dark">#121212</color>           <!-- Optional -->
+    <color name="text_dark">#121212</color>
 </resources>

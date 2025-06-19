@@ -9,25 +9,40 @@
         android:id="@+id/splashFragment"
         android:name="com.example.daftarak.ui.fragment.SplashFragment"
         android:label="fragment_splash"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
         tools:layout="@layout/fragment_splash">
 
         <action
             android:id="@+id/action_splashFragment_to_viewPagerFragment"
-            app:destination="@id/viewPagerFragment" />
+            app:destination="@id/viewPagerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
 
-        <!-- Navigate directly to main after splash if not first time -->
         <action
             android:id="@+id/action_splashFragment_to_notebooksFragment"
             app:destination="@id/nav_main"
             app:launchSingleTop="true"
             app:popUpTo="@id/nav_onboarding"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
         android:id="@+id/viewPagerFragment"
         android:name="com.example.daftarak.ui.fragment.onboarding.ViewPagerFragment"
         android:label="fragment_view_pager"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
         tools:layout="@layout/fragment_view_pager">
 
         <action
@@ -35,6 +50,11 @@
             app:destination="@id/nav_main"
             app:launchSingleTop="true"
             app:popUpTo="@id/nav_onboarding"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
+
 </navigation>

@@ -6,7 +6,6 @@
     android:id="@+id/splashFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/splash_screen_bg"
     tools:context=".ui.fragment.SplashFragment">
 
     <!-- Guidelines for consistent structure -->

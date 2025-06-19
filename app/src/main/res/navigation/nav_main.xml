@@ -5,16 +5,25 @@
     android:id="@+id/nav_main"
     app:startDestination="@id/notebooksFragment">
 
+    <!-- Fragments -->
     <fragment
         android:id="@+id/notebooksFragment"
         android:name="com.example.daftarak.ui.fragment.NotebooksFragment"
         android:label="Notebooks"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_right"
+        app:popExitAnim="@anim/slide_out_left"
         tools:layout="@layout/fragment_notebooks" />
 
     <fragment
         android:id="@+id/notesFragment"
         android:name="com.example.daftarak.ui.fragment.NotesFragment"
         android:label="Notes"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_right"
+        app:popExitAnim="@anim/slide_out_left"
         tools:layout="@layout/fragment_notes">
         <argument
             android:name="notebook_id"
@@ -26,37 +35,53 @@
         android:id="@+id/settingsFragment"
         android:name="com.example.daftarak.ui.fragment.SettingsFragment"
         android:label="Settings"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_right"
+        app:popExitAnim="@anim/slide_out_left"
         tools:layout="@layout/fragment_settings" />
 
     <fragment
         android:id="@+id/aboutUsFragment"
         android:name="com.example.daftarak.ui.fragment.AboutUsFragment"
         android:label="About Us"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_right"
+        app:popExitAnim="@anim/slide_out_left"
         tools:layout="@layout/fragment_about_us" />
 
-    <!-- Dialog Fragments -->
+    <!-- Dialog Fragment -->
     <dialog
         android:id="@+id/createNotebookDialogFragment"
         android:name="com.example.daftarak.ui.fragment.dialog.CreateNotebookDialogFragment"
         android:label="Create Notebook"
+        app:enterAnim="@anim/slide_in_bottom"
+        app:exitAnim="@anim/slide_out_bottom"
         tools:layout="@layout/fragment_create_notebook_dialog" />
 
     <dialog
         android:id="@+id/addNoteDialogFragment"
         android:name="com.example.daftarak.ui.fragment.dialog.AddNoteDialogFragment"
         android:label="Add Note"
+        app:enterAnim="@anim/slide_in_bottom"
+        app:exitAnim="@anim/slide_out_bottom"
         tools:layout="@layout/fragment_add_note_dialog" />
 
     <dialog
         android:id="@+id/notebookListBottomSheetDialogFragment"
         android:name="com.example.daftarak.ui.fragment.dialog.NotebookListBottomSheetDialogFragment"
         android:label="Select Notebook"
+        app:enterAnim="@anim/slide_in_bottom"
+        app:exitAnim="@anim/slide_out_bottom"
         tools:layout="@layout/fragment_notebook_list_bottom_sheet_dialog" />
 
     <dialog
         android:id="@+id/searchOptionsBottomSheetDialog"
         android:name="com.example.daftarak.ui.fragment.dialog.SearchOptionsBottomSheetDialog"
         android:label="Search Options"
+        app:enterAnim="@anim/slide_in_bottom"
+        app:exitAnim="@anim/slide_out_bottom"
         tools:layout="@layout/fragment_search_options_bottom_sheet_dialog">
         <argument
             android:name="search_title"
@@ -72,8 +97,9 @@
         android:id="@+id/sortOptionsBottomSheetDialog"
         android:name="com.example.daftarak.ui.fragment.dialog.SortOptionsBottomSheetDialogFragment"
         android:label="Sort Options"
+        app:enterAnim="@anim/slide_in_bottom"
+        app:exitAnim="@anim/slide_out_bottom"
         tools:layout="@layout/fragment_sort_options_bottom_sheet_dialog">
-
         <argument
             android:name="sort_by"
             android:defaultValue="date"
@@ -82,7 +108,6 @@
             android:name="ascending"
             android:defaultValue="true"
             app:argType="boolean" />
-
     </dialog>
 
 </navigation>

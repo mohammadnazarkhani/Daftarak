@@ -8,14 +8,7 @@
     <color name="secondary_light">#F9F7F7</color>
 
     <color name="text_light">#F5F5F5</color>          <!-- Light text on dark bg -->
-    <color name="text_dark">#121212</color>           <!-- Optional -->
-
-    <color name="splash_screen_bg">#FCF9F6</color>
-
-    <color name="screen1_bg">#FAF7F3</color>
-    <color name="screen2_bg">#F4EAE0</color>
-    <color name="screen3_bg">#F7F2E7</color>
-    <color name="screen4_bg">#FBF7F3</color>
+    <color name="text_dark">#121212</color>
 
     <color name="next_btn">#1B94E0</color>
 
