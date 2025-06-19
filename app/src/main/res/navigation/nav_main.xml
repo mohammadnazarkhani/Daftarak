@@ -52,4 +52,11 @@
         android:name="com.example.daftarak.ui.fragment.dialog.AddNoteDialogFragment"
         android:label="Add Note"
         tools:layout="@layout/fragment_add_note_dialog" />
+
+    <dialog
+        android:id="@+id/notebookListBottomSheetDialogFragment"
+        android:name="com.example.daftarak.ui.fragment.dialog.NotebookListBottomSheetDialogFragment"
+        android:label="Select Notebook"
+        tools:layout="@layout/fragment_notebook_list_bottom_sheet_dialog" />
+
 </navigation>

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.daftarak.R;
 import com.example.daftarak.ui.adapter.NoteAdapter;
+import com.example.daftarak.ui.fragment.dialog.NotebookListBottomSheetDialogFragment;
 import com.example.daftarak.ui.viewmodel.NoteViewModel;
 
 import java.util.ArrayList;
@@ -63,10 +64,13 @@ public class NotesFragment extends Fragment {
                 noteAdapter.setNotes(notes);
             });
         } else {
-            // Show all notes if no notebook ID was passed
-            noteViewModel.getAllNotes().observe(getViewLifecycleOwner(), notes -> {
-                noteAdapter.setNotes(notes);
-            });
+//            // Show all notes if no notebook ID was passed
+//            noteViewModel.getAllNotes().observe(getViewLifecycleOwner(), notes -> {
+//                noteAdapter.setNotes(notes);
+//            });
+            NotebookListBottomSheetDialogFragment bottomSheet = new NotebookListBottomSheetDialogFragment();
+            bottomSheet.show(requireActivity().getSupportFragmentManager(), "NotebookListBottomSheet");
+
         }
     }
 }
