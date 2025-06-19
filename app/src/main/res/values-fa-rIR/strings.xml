@@ -72,10 +72,5 @@
         <item>تاریک</item>
     </string-array>
 
-    <string-array name="language_options">
-        <item>پیش‌فرض سیستم</item>
-        <item>انگلیسی</item>
-        <item>فارسی</item>
-    </string-array>
     <string name="enter_notebook_title">عنوان دفترجه را وارد کنید</string>
 </resources>

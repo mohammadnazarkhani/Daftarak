@@ -19,7 +19,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.daftarak.utility.LocaleHelper;
 import com.example.daftarak.utility.UiExtensions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -29,14 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private FloatingActionButton fab;
     private NavController navController; // Store for reuse
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        SharedPreferences prefs = newBase.getSharedPreferences("app_prefs", Context.MODE_PRIVATE);
-        String langPref = prefs.getString("pref_language", "system");
-        Context context = LocaleHelper.setLocale(newBase, langPref);
-        super.attachBaseContext(context);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

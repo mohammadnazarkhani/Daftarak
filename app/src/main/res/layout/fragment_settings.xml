@@ -38,28 +38,6 @@
             android:dropDownVerticalOffset="12dp"
             android:popupBackground="?attr/colorSurfaceContainerHigh" />
 
-        <!-- Language Selection -->
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/language_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/select_language"
-            android:textSize="18sp"
-            android:textColor="?attr/colorOnSurface"
-            android:fontFamily="@font/roboto_medium"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="8dp" />
-
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:id="@+id/spinner_language"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="10dp"
-            android:backgroundTint="?attr/colorOutline"
-            android:dropDownVerticalOffset="12dp"
-            android:popupBackground="?attr/colorSurfaceContainerHigh" />
-
     </LinearLayout>
 
 </ScrollView>
