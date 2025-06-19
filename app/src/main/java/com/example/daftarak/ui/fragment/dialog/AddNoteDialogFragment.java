@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,8 +25,8 @@ public class AddNoteDialogFragment extends BottomSheetDialogFragment {
 
     private EditText editTextTitle;
     private EditText editTextBody;
-    private Button btnAdd;
-    private Button btnCancel;
+    private Button btnAdd, btnCancel, btnDelete;
+    private TextView dialogTitle;
 
     private int notebookId;
     private Note existingNote;
@@ -68,12 +69,17 @@ public class AddNoteDialogFragment extends BottomSheetDialogFragment {
         editTextBody = view.findViewById(R.id.editTextNoteBody);
         btnAdd = view.findViewById(R.id.btnAddNote);
         btnCancel = view.findViewById(R.id.btnCancelNote);
+        btnDelete = view.findViewById(R.id.btnDeleteNote);
+        dialogTitle = view.findViewById(R.id.dialogTitleNote);
 
-        // Pre-fill fields if editing
         if (existingNote != null) {
             editTextTitle.setText(existingNote.getTitle());
             editTextBody.setText(existingNote.getBody());
-            btnAdd.setText(R.string.update); // Change text from "Add" to "Update"
+            btnAdd.setText(R.string.update);
+            dialogTitle.setText(R.string.edit_note);
+            btnDelete.setVisibility(View.VISIBLE);
+        } else {
+            btnDelete.setVisibility(View.GONE);
         }
 
         btnCancel.setOnClickListener(v -> dismiss());
@@ -83,26 +89,32 @@ public class AddNoteDialogFragment extends BottomSheetDialogFragment {
             String body = editTextBody.getText().toString().trim();
 
             if (TextUtils.isEmpty(title)) {
-                editTextTitle.setError("Title cannot be empty");
+                editTextTitle.setError(getString(R.string.title_empty_error));
                 return;
             }
 
             NoteRepository repository = new NoteRepository(requireContext());
 
             if (existingNote != null) {
-                // Edit mode
                 existingNote.setTitle(title);
                 existingNote.setBody(body);
                 repository.updateNote(existingNote);
-                Toast.makeText(requireContext(), "Note updated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), R.string.note_updated, Toast.LENGTH_SHORT).show();
             } else {
-                // Add mode
                 Note newNote = new Note(title, body, System.currentTimeMillis(), notebookId);
                 repository.insertNote(newNote);
-                Toast.makeText(requireContext(), "Note added", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), R.string.note_added, Toast.LENGTH_SHORT).show();
             }
 
             dismiss();
+        });
+
+        btnDelete.setOnClickListener(v -> {
+            if (existingNote != null) {
+                new NoteRepository(requireContext()).deleteNote(existingNote);
+                Toast.makeText(requireContext(), R.string.note_deleted, Toast.LENGTH_SHORT).show();
+                dismiss();
+            }
         });
 
         return view;

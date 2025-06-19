@@ -51,4 +51,16 @@
     <string name="update">بروز رسانی</string>
     <string name="edit_notebook">ویرایش دفترچه</string>
     <string name="delete_note">حذف یادداشت</string>
+    <string name="edit_note">ویرایش یادداشت</string>
+    <string name="note_updated">یادداشت به‌روزرسانی شد</string>
+    <string name="note_added">یادداشت اضافه شد</string>
+    <string name="note_deleted">یادداشت حذف شد</string>
+    <string name="title_empty_error">عنوان نمی‌تواند خالی باشد</string>
+    <string name="search_in">جستجو در:</string>
+    <string name="apply">اعمال</string>
+    <string name="sort_by">مرتب‌سازی بر اساس:</string>
+    <string name="order">ترتیب:</string>
+    <string name="date">تاریخ</string>
+    <string name="ascending">صعودی</string>
+    <string name="descending">نزولی</string>
 </resources>

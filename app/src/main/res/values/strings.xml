@@ -49,4 +49,16 @@
     <string name="update">Update</string>
     <string name="edit_notebook">Edit Notebook</string>
     <string name="delete_note">Delete Note</string>
+    <string name="edit_note">Edit Note</string>
+    <string name="note_updated">Note updated</string>
+    <string name="note_added">Note added</string>
+    <string name="note_deleted">Note deleted</string>
+    <string name="title_empty_error">Title cannot be empty</string>
+    <string name="search_in">Search in:</string>
+    <string name="apply">Apply</string>
+    <string name="sort_by">Sort by:</string>
+    <string name="order">Order:</string>
+    <string name="date">Date</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
 </resources>

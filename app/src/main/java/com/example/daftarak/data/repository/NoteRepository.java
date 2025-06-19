@@ -36,7 +36,6 @@ public class NoteRepository {
     }
 
     // Return LiveData for all query methods
-
     public LiveData<java.util.List<Note>> getNotesSortedByDateAsc() {
         return noteDao.getAllNotesSortedByDateAsc();
     }
@@ -68,6 +67,17 @@ public class NoteRepository {
     public LiveData<java.util.List<Note>> getNotesByNotebookId(int notebookId) {
         return noteDao.getNotesByNotebookId(notebookId);
     }
+
+    public LiveData<List<Note>> getNotesByNotebookIdSorted(int notebookId, String sortBy, boolean ascending) {
+        if ("title".equals(sortBy)) {
+            return ascending ? noteDao.getNotesByNotebookIdSortedByTitleAsc(notebookId)
+                    : noteDao.getNotesByNotebookIdSortedByTitleDesc(notebookId);
+        } else {
+            return ascending ? noteDao.getNotesByNotebookIdSortedByDateAsc(notebookId)
+                    : noteDao.getNotesByNotebookIdSortedByDateDesc(notebookId);
+        }
+    }
+
 
     public LiveData<List<Note>> getAllNotes() {
         return noteDao.getAllNotes();

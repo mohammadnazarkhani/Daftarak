@@ -7,10 +7,9 @@
     android:layout_height="match_parent">
 
     <!-- Search Toolbar -->
-    <include
-        android:id="@+id/searchBar"
-        layout="@layout/view_search_toolbar"
-        android:layout_width="0dp"
+    <com.example.daftarak.ui.widgets.SearchToolbar
+        android:id="@+id/searchToolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,14 +18,14 @@
     <!-- Notes RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notesRecyclerView"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:padding="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchBar"
+        app:layout_constraintTop_toBottomOf="@id/searchToolbar"
         tools:listitem="@layout/item_note" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

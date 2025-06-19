@@ -9,12 +9,14 @@
     tools:context=".ui.fragment.dialog.AddNoteDialogFragment">
 
     <TextView
+        android:id="@+id/dialogTitleNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="top|center"
+        android:layout_gravity="center"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/new_note"
         android:textSize="24sp" />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -59,16 +61,28 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btnDeleteNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:background="@drawable/btn_cancel_outline_ripple"
+            android:backgroundTint="@android:color/transparent"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/delete"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="20sp" />
+
+        <Button
             android:id="@+id/btnCancelNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:background="@drawable/btn_cancel_outline_ripple"
             android:backgroundTint="@android:color/transparent"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/cancel"
             android:textColor="@color/primary"
-            android:textSize="20sp"
-            tools:ignore="ButtonStyle" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/btnAddNote"
@@ -80,4 +94,5 @@
             android:text="@string/add"
             android:textSize="20sp" />
     </LinearLayout>
+
 </LinearLayout>

@@ -16,7 +16,7 @@ import com.example.daftarak.R;
 public class SearchToolbar extends LinearLayout {
 
     private EditText searchInput;
-    private ImageButton btnSearchOptions, btnSortType, btnSortOrder;
+    private ImageButton btnSearchOptions, btnSortType;
 
     private OnSearchListener listener;
 
@@ -41,7 +41,6 @@ public class SearchToolbar extends LinearLayout {
         searchInput = findViewById(R.id.search_input);
         btnSearchOptions = findViewById(R.id.btn_search_options);
         btnSortType = findViewById(R.id.btn_sort_type);
-        btnSortOrder = findViewById(R.id.btn_sort_order);
 
         searchInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -73,10 +72,6 @@ public class SearchToolbar extends LinearLayout {
         btnSortType.setOnClickListener(v -> {
             if (listener != null) listener.onSortTypeClick();
         });
-
-        btnSortOrder.setOnClickListener(v -> {
-            if (listener != null) listener.onSortOrderClick();
-        });
     }
 
     public void setSearchListener(OnSearchListener listener) {
@@ -99,7 +94,5 @@ public class SearchToolbar extends LinearLayout {
         void onSearchOptionsClick();
 
         void onSortTypeClick();
-
-        void onSortOrderClick();
     }
 }
