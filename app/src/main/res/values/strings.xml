@@ -35,4 +35,8 @@
     <string name="enable_dark_mode">Enable Dark Mode</string>
     <string name="enable_notifications">Enable Notifications</string>
     <string name="about_us_description">We are Mohammad Nazarkhani and Mahyar Galdiani. Our professor is Dr. Roshani.\n\nThis is a Mobile Programming class at the National University of Skills Chamran Gorgan.</string>
+    <string name="new_notebook">New Notebook</string>
+    <string name="title">Title:</string>
+    <string name="cancel">Cancel</string>
+    <string name="create">Create</string>
 </resources>

@@ -1,0 +1,4 @@
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/primary_light">
+    <item android:drawable="@drawable/btn_cancel_outline" />
+</ripple>
