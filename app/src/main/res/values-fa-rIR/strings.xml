@@ -2,9 +2,6 @@
 <resources>
     <string name="app_name">دفترک</string>
     <string name="splash_screen_image">تصویر صفحه پیش نمایش</string>
-    <string name="students">دانشجویان:</string>
-    <string name="student1">محمد نظرخانی</string>
-    <string name="student2">مهیار گلدیانی</string>
     <string name="next">بعدی</string>
     <string name="welcome_to">خوش آمدید به</string>
     <string name="screen1_desc">افکارت را ثبت کن، ایده‌هایت را سامان بده و با آسودگی بهره‌وری‌ات را حفظ کن.</string>
@@ -34,9 +31,7 @@
     <string name="sample_note_title">نمونه عنوان یادداشت که ممکن است خیلی طولانی باشد</string>
     <string name="enable_dark_mode">فعال‌سازی حالت تاریک</string>
     <string name="enable_notifications">فعال‌سازی اعلان‌ها</string>
-    <string name="about_us_description">
-    ما محمد نظرخانی و مهیار گلدیانی هستیم. استاد ما دکتر روشنی هستند.&#x0A;&#x0A;این کلاس برنامه‌نویسی موبایل است که در دانشگاه ملی مهارت چمران گرگان برگزار می‌شود.
-</string>
+    <string name="about_us_description">دفترک یک اپلیکیشن ساده و کاربردی برای یادداشت‌برداری سریع و منظم است. ما تلاش کرده‌ایم تجربه‌ای روان، مینیمال و بدون پیچیدگی برای کاربران فراهم کنیم. پشتیبانی و ارتباط با ما از طریق ایمیل: sprt.apps.nazar@outlook.com</string>
     <string name="new_notebook">دفترچه جدید</string>
     <string name="title">عنوان</string>
     <string name="cancel">انصراف</string>
@@ -44,8 +39,8 @@
     <string name="add">افزودن</string>
     <string name="body">بدنه</string>
     <string name="new_note">یادداشت جدید</string>
-    <string name="write_you_title_here">عنوان را در اینجا وارد کنید...</string>
-    <string name="write_your_note_here">یادداشتتان را در اینجا وارد کنید...</string>
+    <string name="write_you_title_here">عنوان را در اینجا وارد کنید…</string>
+    <string name="write_your_note_here">یادداشتتان را در اینجا وارد کنید…</string>
     <string name="edit">ویرایش</string>
     <string name="delete">حذف</string>
     <string name="update">بروز رسانی</string>
@@ -83,4 +78,11 @@
     <string name="please_select_a_notebook_first">لطفا، ابتدا یک دفترچه را انتحاب نمایید</string>
     <string name="navigation_state_error">خطای حالت ناوبری</string>
     <string name="select_a_notebook">انتخاب یک دفترچه</string>
+    <string name="create_notebook">ساخت دفترچه</string>
+    <string name="add_note">افزودن یادداشت</string>
+    <string name="select_notebook">انتخاب دفترچه</string>
+    <string name="sort_options">گزینه‌های مرتب‌سازی</string>
+    <string name="thank_you_for_downloading_from_caf_bazaar_enjoy_the_best_note_taking_experience">ممنون که از کافه‌بازار دانلود کردید. بهترین تجربه یادداشت‌برداری را برای شما آرزو می‌کنیم.</string>
+    <string name="welcome_to_daftarak">به دفترک خوش آمدید!</string>
+    <string name="get_started">"بزن بریم  "</string>
 </resources>

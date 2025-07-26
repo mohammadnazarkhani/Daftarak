@@ -3,6 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="text_color">#FFFFFFFF</color>
+
     <color name="primary">#0B1F36</color>             <!-- Darker shade of #112D4E -->
     <color name="primary_light">#2C4C78</color>       <!-- Darker shade of #3F72AF -->
 

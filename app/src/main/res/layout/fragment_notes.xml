@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <!-- Search Toolbar -->
-    <com.example.daftarak.ui.widgets.SearchToolbar
+    <com.mnazar.daftarak.ui.widgets.SearchToolbar
         android:id="@+id/searchToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

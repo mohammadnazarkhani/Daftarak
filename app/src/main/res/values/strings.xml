@@ -1,9 +1,6 @@
 <resources>
     <string name="app_name">Daftarak</string>
     <string name="splash_screen_image">Splash Screen Image</string>
-    <string name="students">Students:</string>
-    <string name="student1">Mohammad Nazarkhani</string>
-    <string name="student2">Mahyar Galdiani</string>
     <string name="welcome_to">Welcome to</string>
     <string name="screen1_desc">Capture your thoughts, organize your ideas, and stay productive with ease.</string>
     <string name="next">Next</string>
@@ -34,7 +31,7 @@
     <string name="sample_note_title">Note Title Example That Might Be Too Long</string>
     <string name="enable_dark_mode">Enable Dark Mode</string>
     <string name="enable_notifications">Enable Notifications</string>
-    <string name="about_us_description">We are Mohammad Nazarkhani and Mahyar Galdiani. Our professor is Dr. Roshani.\n\nThis is a Mobile Programming class at the National University of Skills Chamran Gorgan.</string>
+    <string name="about_us_description">Daftarak is a simple and practical app for quick and organized note-taking. We\'ve designed it to provide a smooth and minimal experience without unnecessary complexity. For support, contact us at: sprt.apps.nazar@outlook.com</string>
     <string name="new_notebook">New Notebook</string>
     <string name="title">Title</string>
     <string name="cancel">Cancel</string>
@@ -42,8 +39,8 @@
     <string name="add">Add</string>
     <string name="body">Body</string>
     <string name="new_note">New Note</string>
-    <string name="write_you_title_here">Write you title here...</string>
-    <string name="write_your_note_here">Write your note here...</string>
+    <string name="write_you_title_here">Write you title here…</string>
+    <string name="write_your_note_here">Write your note here…</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="update">Update</string>
@@ -81,4 +78,11 @@
     <string name="please_select_a_notebook_first">Please select a notebook first</string>
     <string name="navigation_state_error">Navigation state error</string>
     <string name="select_a_notebook">Select a Notebook</string>
+    <string name="create_notebook">Create Notebook</string>
+    <string name="add_note">Add Note</string>
+    <string name="select_notebook">Select Notebook</string>
+    <string name="sort_options">Sort Options</string>
+    <string name="thank_you_for_downloading_from_caf_bazaar_enjoy_the_best_note_taking_experience">Thank you for downloading from Café Bazaar. Enjoy the best note-taking experience.</string>
+    <string name="welcome_to_daftarak">Welcome to Daftarak!</string>
+    <string name="get_started">Get Started</string>
 </resources>

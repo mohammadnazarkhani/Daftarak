@@ -1,24 +1,43 @@
+import java.util.Properties
+import java.io.FileInputStream
+
+val localProperties = Properties().apply {
+    val localPropsFile = rootProject.file("local.properties")
+    if (localPropsFile.exists()) {
+        load(FileInputStream(localPropsFile))
+    }
+}
+
 plugins {
     alias(libs.plugins.android.application)
 }
 
 android {
-    namespace = "com.example.daftarak"
+    namespace = "com.mnazar.daftarak"
     compileSdk = 35
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     defaultConfig {
-        applicationId = "com.example.daftarak"
+        applicationId = "com.mnazar.daftarak"
         minSdk = 24
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        val tapsellKey = localProperties.getProperty("tapsell_key") ?: ""
+        buildConfigField("String", "TAPSELL_KEY", "\"$tapsellKey\"")
+        val tapsellStBannerKey = localProperties.getProperty("TAPSELL_STANDARD_BANNER") ?: ""
+        buildConfigField("String", "TAPSELL_STANDARD_BANNER", "\"$tapsellStBannerKey\"")
+
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -51,4 +70,5 @@ dependencies {
     implementation(libs.lifecycle.viewmodel)
     implementation(libs.lifecycle.livedata)
     implementation(libs.lifecycle.runtime)
+    implementation(libs.tapsell.plus.sdk.android)
 }

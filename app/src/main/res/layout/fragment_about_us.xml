@@ -13,20 +13,21 @@
         android:id="@+id/aboutCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:minWidth="280dp"
         android:backgroundTint="@color/white"
+        android:minWidth="280dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="6dp"
-        app:strokeColor="@color/md_theme_outline"
-        app:strokeWidth="0.5dp"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/md_theme_outline"
+        app:strokeWidth="0.5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/colorSurface"
             android:orientation="vertical"
             android:padding="24dp">
 
@@ -35,21 +36,21 @@
                 android:id="@+id/aboutTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/roboto_medium"
                 android:gravity="center"
                 android:text="@string/about_us"
-                android:textColor="@color/primary"
-                android:textSize="26sp"
-                android:layout_gravity="center_horizontal" />
+                android:textColor="@color/text_color"
+                android:textSize="26sp" />
 
             <!-- Divider -->
             <View
                 android:layout_width="60dp"
                 android:layout_height="2dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/primary_light" />
+                android:background="?attr/colorPrimaryContainer" />
 
             <!-- Description -->
             <com.google.android.material.textview.MaterialTextView
@@ -59,8 +60,9 @@
                 android:fontFamily="@font/roboto_regular"
                 android:lineSpacingExtra="6dp"
                 android:text="@string/about_us_description"
-                android:textColor="@color/text_dark"
+                android:textColor="@color/text_color"
                 android:textSize="16sp" />
+
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.daftarak.ui.fragment.SplashFragment"
+        android:name="com.mnazar.daftarak.ui.fragment.SplashFragment"
         android:label="fragment_splash"
         app:enterAnim="@anim/slide_in_right"
         app:exitAnim="@anim/slide_out_left"
@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/viewPagerFragment"
-        android:name="com.example.daftarak.ui.fragment.onboarding.ViewPagerFragment"
+        android:name="com.mnazar.daftarak.ui.fragment.onboarding.ViewPagerFragment"
         android:label="fragment_view_pager"
         app:enterAnim="@anim/slide_in_right"
         app:exitAnim="@anim/slide_out_left"
