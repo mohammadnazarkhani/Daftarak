@@ -5,13 +5,13 @@
     <string name="next">بعدی</string>
     <string name="welcome_to">خوش آمدید به</string>
     <string name="screen1_desc">افکارت را ثبت کن، ایده‌هایت را سامان بده و با آسودگی بهره‌وری‌ات را حفظ کن.</string>
-    <string name="scrren2_title_line1">با دفترک‌ها</string>
-    <string name="scrren2_title_line2">سازمان‌دهی کنید</string>
+    <string name="screen2_title_line2">با دفترک‌ها</string>
+    <string name="screen2_title_line1">سازمان‌دهی کنید</string>
     <string name="screen2_description">یادداشت‌های خود را در دفترک‌ها گروه‌بندی کنید تا همه چیز مرتب و ساختارمند باقی بماند.</string>
     <string name="screen_img_description">عکسی برای صفحه کنونی.</string>
-    <string name="scrren3_title">نوشتن، ویرایش، حذف</string>
+    <string name="screen3_title">نوشتن، ویرایش، حذف</string>
     <string name="screen3_description">یادداشت‌های جدید اضافه کنید، موارد موجود را به‌روزرسانی کنید، یا پس از اتمام حذفشان کنید — ساده است.</string>
-    <string name="scrren4_title">جستجو و مرتب‌سازی یادداشت‌ها</string>
+    <string name="screen4_title">جستجو و مرتب‌سازی یادداشت‌ها</string>
     <string name="screen4_description">یادداشت‌های خود را به‌سرعت جستجو و مرتب کنید تا دقیقاً آنچه را می‌خواهید پیدا کنید.</string>
     <string name="notes">یادداشت‌ها</string>
     <string name="settings">تنظیمات</string>

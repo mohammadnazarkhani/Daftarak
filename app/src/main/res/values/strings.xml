@@ -6,12 +6,12 @@
     <string name="next">Next</string>
     <string name="screen_img_description">Image for current screen of view pager.</string>
     <string name="screen2_description">Group your notes into Daftaraks to keep everything neat and structured.</string>
-    <string name="scrren2_title_line2">Daftaraks</string>
-    <string name="scrren2_title_line1">Organize with</string>
+    <string name="screen2_title_line2">Daftaraks</string>
+    <string name="screen2_title_line1">Organize with</string>
     <string name="screen3_description">Add new notes, update existing ones, or delete when you\’re done — it\'s simple.</string>
-    <string name="scrren3_title">Write, Edit, Delete</string>
+    <string name="screen3_title">Write, Edit, Delete</string>
     <string name="screen4_description">Quickly search and sort your notes to find exactly what you\’re looking for.</string>
-    <string name="scrren4_title">Search &amp; Sort Notes</string>
+    <string name="screen4_title">Search &amp; Sort Notes</string>
     <string name="notes">Notes</string>
     <string name="settings">Settings</string>
     <string name="about_us">About Us</string>

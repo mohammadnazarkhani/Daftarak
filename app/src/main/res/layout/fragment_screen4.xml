@@ -52,7 +52,7 @@
             android:id="@+id/txtScreen4Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/scrren4_title"
+            android:text="@string/screen4_title"
             android:fontFamily="@font/roboto_medium"
             android:textSize="26sp"
             android:textAlignment="center"
